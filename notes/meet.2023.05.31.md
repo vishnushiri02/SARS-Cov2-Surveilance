@@ -2,7 +2,7 @@
 id: rb0oo1wvx167hr3myndaf8c
 title: Literature search
 desc: ''
-updated: 1685521744614
+updated: 1686751215158
 created: 1685520578200
 traitIds:
   - meetingNote
@@ -16,8 +16,8 @@ Dr. Daniela Börnigen
 
 ## Work done so far
 
-  - [ ] Literature study to collect already existing studies [[Growth_Rate_Estimation]]
-  - [ ] Glossary with Epidemiological Terms [[Growth_Rate_Estimation.Glossary]]
+  - [x] Literature study to collect already existing studies [[Growth_Rate_Estimation]]
+  - [x] Glossary with Epidemiological Terms [[Growth_Rate_Estimation.Glossary]]
   
 
 
@@ -35,9 +35,9 @@ Dr. Daniela Börnigen
 
 <!-- You can add any follow up items here. If they require more detail, you can use `Create Task Note` to create each follow up item as a separate note. -->
 
-  - [ ] 
-  - [ ] 
-  - [ ] 
+  - [ ] Try to incorporate SARS Covid2 data in the collected models to esitmate growth rate
+    - [ ] Read the paper
+    - [ ] Understand the model
 
 
 
