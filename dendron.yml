@@ -80,9 +80,7 @@ preview:
     enablePrettyRefs: true
     enableKatex: true
     automaticallyShowPreview: false
-publishing:
-    siteUrl: https://vishnushiri02.github.io
-    assetsPrefix: /SARS-Cov2-Surveilance
+publishing: 
     enableFMTitle: true
     enableNoteTitleForLink: true
     enablePrettyRefs: true
@@ -90,6 +88,8 @@ publishing:
     copyAssets: true
     siteHierarchies:
         - root
+    siteUrl: https://vishnushiri02.github.io
+    assetsPrefix: /SARS-Cov2-Surveilance
     writeStubs: false
     siteRootDir: docs
     seo:
@@ -107,4 +107,3 @@ publishing:
     enableTaskNotes: true
     enablePrettyLinks: true
     searchMode: search
-    
