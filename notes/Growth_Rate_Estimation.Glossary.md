@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1686726594505
+updated: 1687524865330
 created: 1684497049640
 ---
 
@@ -72,7 +72,16 @@ The capacity of a virus (a serotype, clade, or variant) to become dominant in th
 [viral_fitness_reference](https://doi.org/10.1016/j.coviro.2012.07.007)
 
 ## **Incidence vs Prevalence:**
-Prevalence differs from incidence in that prevalence includes all cases, both new and preexisting, in the population at the specified time, whereas incidence is limited to new cases only
+Prevalence differs from incidence in that prevalence includes all cases, both new and preexisting, in the population at the specified time, whereas incidence is limited to new cases only<br>
+Prevelance is calculated as:
+$$$
+Prevalance = \cfrac{Number of cases}{total population}
+$$$
+Incidence is calculated as:
+$$$
+Incidence = \cfrac{Newcases}{total population}
+$$$
+
 
 ## **Cumulative Incidence:**
 Cumulative incidence is the proportion of a population at risk that develops the outcome of interest over a specified time period.

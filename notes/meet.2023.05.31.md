@@ -2,7 +2,7 @@
 id: rb0oo1wvx167hr3myndaf8c
 title: Literature search
 desc: ''
-updated: 1686751215158
+updated: 1687417677816
 created: 1685520578200
 traitIds:
   - meetingNote
@@ -30,14 +30,15 @@ Dr. Daniela Börnigen
 ## Next step
 
 <!-- What should  I work on till the next meeting-->
+- Try to incorporate SARS Covid2 data in the collected models to esitmate growth rate
 
 ## Tasks
 
 <!-- You can add any follow up items here. If they require more detail, you can use `Create Task Note` to create each follow up item as a separate note. -->
-
-  - [ ] Try to incorporate SARS Covid2 data in the collected models to esitmate growth rate
     - [ ] Read the paper
     - [ ] Understand the model
+    - [ ] Get the SARS Cov-2 Data
+    - [ ]  Incorporate the data in the model
 
 
 
