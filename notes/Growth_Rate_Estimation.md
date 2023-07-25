@@ -4,7 +4,7 @@ title: Growth_Rate_Estimation
 desc: >-
   This note is the overall Reference document that is needed throughout this
   project
-updated: 1686732710210
+updated: 1691505922590
 created: 1684496674975
 ---
 # Existing methods to model the growth rate
@@ -73,12 +73,6 @@ x(t) = c(t + \Delta t)-c(t)
 $$
 *_where c(t) is cumulative incidence, and x(t) is interval incidence (typically daily or weekly)._* [1]
 ## SEIR model (phenomenological model)
-
-
-
-
-
-
 
 # References
 [1]: <https://doi.org/10.1007/s11538-013-9918-2>

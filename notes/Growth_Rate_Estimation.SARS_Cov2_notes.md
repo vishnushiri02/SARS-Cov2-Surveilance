@@ -2,10 +2,13 @@
 id: dm29gl6lytt8sj0b96z6pg8
 title: SARS_Cov2_notes
 desc: This scratchpad contains vatious notes
-updated: 1685521832265
+updated: 1691505975483
 created: 1684740753208
 ---
 
+## **Facts on SARS-CoV2:**
+
+- The SARS-CoV-2 virus accumulates approximately 24 point muta- tions per year, or 0.3 mutations per viral generation [3]
 
 ## ** Factors to consider when modelling the epidemiology of SARS Cov2 **:
 
@@ -68,6 +71,7 @@ created: 1684740753208
 <!--References-->
   [1]: <./assets/Reference%20literature/set-covid-19-R-estimates.pdf> 
   [2]: <https://doi.org/10.1007/s11538-013-9918-2>
+  [3]: <https://doi.org/10.1038/s41586-021-04069-y>
 
   
   

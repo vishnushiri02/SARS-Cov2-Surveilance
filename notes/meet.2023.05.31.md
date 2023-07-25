@@ -2,7 +2,7 @@
 id: rb0oo1wvx167hr3myndaf8c
 title: Literature search
 desc: ''
-updated: 1687417677816
+updated: 1689329027574
 created: 1685520578200
 traitIds:
   - meetingNote
@@ -38,7 +38,7 @@ Dr. Daniela Börnigen
     - [ ] Read the paper
     - [ ] Understand the model
     - [ ] Get the SARS Cov-2 Data
-    - [ ]  Incorporate the data in the model
+    - [ ] Incorporate the data in the model
 
 
 
