@@ -2,7 +2,7 @@
 id: qr9otvt7um9wubucm04d6on
 title: WorkLog
 desc: 'A record of what work was done each day starting form 22 june 2023'
-updated: 1691482080143
+updated: 1691657829844
 created: 1687416396030
 ---
 |DATE|TASK THAT WAS HANDLED| DESCRIPTION OF THE WORK PERFORMED TODAY|
@@ -27,5 +27,7 @@ created: 1687416396030
 |4-8-23|[[Model study\|meet.2023.05.31#next-step]]|Beta Distribution,Dirichlet distribution|
 |5,6-8-23|-|Weekend|
 |7-8-23|[[Model study\|meet.2023.05.31#next-step]]| Dirichlet distribution and Dirichlet-multinomial distribution|
-|8-8-23|[[Model study\|meet.2023.05.31#next-step]]||
+|8-8-23|[[Model study\|meet.2023.05.31#next-step]]|Read through the paper, Tried to get the overall picture of the model intuitively and also tried to answer my doubts|
+|9-8-23|[[meet.2023.08.09]]|Meeting, Filled the document with the answers to the doubts, pushed to git|
+|10-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]||
 
