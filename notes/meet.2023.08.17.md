@@ -1,6 +1,6 @@
 ---
 id: 5gbivzjsbzwfsd94vmku5is
-title: 'The extra resources'
+title: The extra resources
 desc: ''
 updated: 1691657505239
 created: 1691657413999

@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1691566075111
+updated: 1691677037121
 created: 1684497049640
 ---
 
@@ -50,7 +50,7 @@ Showing a significant level of serum antibodies, or other immunologic marker in 
   The generation time, Ƭ, for an infectious disease is the time between **_infection_** events in an infector-infectee pair of individuals. 
   It can be used to derieve the speed of the spread.
   Measuring Generation time is challenging because it is unobserved. Hence is usually replaced with serial time.
-  However, ignoring the difference between the serial interval and generation time can lead to biased estimates of R
+  However, ignoring the difference between the serial interval and generation time can lead to biased estimates of R.
   At this early stage the instantaneous r of the exponentially growing epidemic curve, is approximately given by $r = (R_0-1)/Ƭ$
   
 ## **Serial interval:**
@@ -218,9 +218,11 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 - The multinomial distribution models the outcome of n experiments, where the outcome of each trial has a categorical distribution, such as rolling a k-sided die n times.
 
 ## **Hierarchical Bayesian model:**
+
 - Bayesian hierarchical modelling is a statistical model written in multiple levels (hierarchical form) that estimates the parameters of the posterior distribution using the Bayesian method.[1] The sub-models combine to form the hierarchical model, and Bayes' theorem is used to integrate them with the observed data and account for all the uncertainty that is present. The result of this integration is the posterior distribution, also known as the updated probability estimate, as additional evidence on the prior distribution is acquired.
 
 ## **Negative Binomial Distribution:**
+
  The negative binomial distribution is the probability distribution of the number of successes before the rth failure in a Bernoulli process, with probability p of successes on each trial.
   
 [1]: <https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module3-Frequency-Association/PH717-Module3-Frequency-Association4.html#:~:text=Cumulative%20Incidence%20Versus%20Incidence%20Rate,-There%20are%20two&text=Cumulative%20incidence%20is%20the%20proportion,%22%20(person%2Dtime)>
