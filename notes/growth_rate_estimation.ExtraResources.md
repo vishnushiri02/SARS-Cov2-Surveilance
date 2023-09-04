@@ -2,7 +2,7 @@
 id: urvehi4ygxtjn16au66boqz
 title: Extra resources
 desc: 'This note will consolidate ideas from other papers. '
-updated: 1693826667273
+updated: 1693834023287
 created: 1691675878724
 traitIds:
   - meetingNote
@@ -73,11 +73,12 @@ $$$\\
 \sigma^2=\frac{(a+\sum_{s=t-\tau+1}^tI_s)}{(\frac{1}{b}+\sum-{s=t-\tau+1}^t\wedge_s)^2}\\
 CV=\frac{1}{\sqrt{a+\sum_{s=t-\tau+1}^tI_s}}\\
 $$$
-> **How is cv calculated** : consider parameters be $\alpha$ and $\frac{1}{\beta}$ respectively. Then $$$\\
+ **How is cv calculated** : consider parameters be $\alpha$ and $\frac{1}{\beta}$ respectively. Then 
+ $$$\\
 \mu=\frac{\alpha}{\beta}\\
 \sigma^2=\frac{\alpha}{\beta^2}\\
 cv=\frac{\sigma}{\mu}=\frac{\sqrt{\frac{\alpha}{\beta^2}}}{\frac{\alpha}{\beta}}=\frac{1}{\alpha}
-> $$$
+$$$
 
 + Estimate of $R_t$ is dependent on the time window. Choosing a small $\tau$ would give way to detect rapid changes in the transmission but would lead to more noise in the data, while choosing a large $\tau$ would result in more smoothing.
 + The CV of the posterior distribution of $R_{t,\tau}$ allows a way to link the CV and number of incident cases in the time window. A predeterminded CV<sub>treshold</sub> would allow to determine the minimium number of incident cases in the time window considered.
@@ -148,8 +149,10 @@ Homogenous mixing, closed population and no intervention during outbreak
 
 > My interpretation of the mean: there is an average exponential growth in the incidence at a rate of $\gamma(R-1)$ where (R-1) is the average number of secondary cases and the $\gamma$ can be number of primary cases ($\\\frac{sum\space of\space infection\space time\space durations}{number\space of\space infections}=Average\space infectious\space period\\\frac{sum\space of\space infection\space time\space durations}{Average\space infectious\space period}=number\space of\space infections$) Multiplying it with N(t) would give the mean for until time step t.
 
-  3. This Bayesian inference framework is used in this model. The idea is to use the probability distribution of R calculated on the data set $N_0,...N_t$ as prior to calculate the postrior distribution $$$\\
-   P(R|N_0,..N_{t+1})=\frac{P(N_{t+1}|R)P(R|N_0,...N_t)}{P(N_0,..N_{t+1})}$$$
+   This Bayesian inference framework is used in this model. The idea is to use the probability distribution of R calculated on the data set $N_0,...N_t$ as prior to calculate the postrior distribution 
+   $$$\\
+   P(R|N_0,..N_{t+1})=\frac{P(N_{t+1}|R)P(R|N_0,...N_t)}{P(N_0,..N_{t+1})}
+   $$$
 
   + **Assumption:** Random mixing in the population
 
@@ -157,7 +160,9 @@ Homogenous mixing, closed population and no intervention during outbreak
   1. Proposed by Wallinga and Teunis
   2. Reproduction number is computed by averaging over all transmission at same level in a transmission network.
   3. The probability that the case i at time $t_i$ is infected by case j that has time onset $t_j$ is given by $P_{ij}$
-  4. $$$\\P_{ij}=\frac{N_iw(t_i-t_j)}{\sum_{i\ne k}N_iw(t_i-t_k)}$$$
+  4. $$$\\
+  P_{ij}=\frac{N_iw(t_i-t_j)}{\sum_{i\ne k}N_iw(t_i-t_k)}
+  $$$
   5. The effective reproduction number which is the average number of secondary cases that a primary case can cause is given by the expectation number $R_j=\sum_i p_{ij}$ This is averaged as $R_t=\frac{1}{N_t}\sum_{t_j=t}R_j$ over all cases with same date of onset.
   6. Generation time should be discretized
   7. Imported cases can also be accounted
@@ -180,7 +185,7 @@ Homogenous mixing, closed population and no intervention during outbreak
 
    1. Observed epidemic curves: Number of reported cases by the date of symptom onset. Basically the observed incidence given by days.
    2. Observed Distribution of generation time/ serial time
-   
+
 **Estimation of Reproduction numbers - Likelihood based estimation procedure**
 
 1. Since the contact network is usually not known a likelihood method is used to estimate who infected whom from observed incidence data. 

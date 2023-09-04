@@ -2,7 +2,7 @@
 id: qr9otvt7um9wubucm04d6on
 title: WorkLog
 desc: 'A record of what work was done each day starting form 22 june 2023'
-updated: 1693739497863
+updated: 1693834177512
 created: 1687416396030
 ---
 |DATE|TASK THAT WAS HANDLED| DESCRIPTION OF THE WORK PERFORMED TODAY|
@@ -47,7 +47,9 @@ created: 1687416396030
 |29-8-23|Work at centogene||
 |30-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Wallinga_Teunis Paper|
 |31-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Wallinga_Teunis Paper,Thomson paper|
-|1-9-23|||
+|1-9-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Thomson paper|
 |2,3-9-23|Weekend||
+|4-9-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]| Preparing for the meeting and planning for the next works|
+|
 
 
