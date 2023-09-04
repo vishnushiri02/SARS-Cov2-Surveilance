@@ -2,7 +2,7 @@
 id: qr9otvt7um9wubucm04d6on
 title: WorkLog
 desc: 'A record of what work was done each day starting form 22 june 2023'
-updated: 1691657829844
+updated: 1693739497863
 created: 1687416396030
 ---
 |DATE|TASK THAT WAS HANDLED| DESCRIPTION OF THE WORK PERFORMED TODAY|
@@ -29,5 +29,25 @@ created: 1687416396030
 |7-8-23|[[Model study\|meet.2023.05.31#next-step]]| Dirichlet distribution and Dirichlet-multinomial distribution|
 |8-8-23|[[Model study\|meet.2023.05.31#next-step]]|Read through the paper, Tried to get the overall picture of the model intuitively and also tried to answer my doubts|
 |9-8-23|[[meet.2023.08.09]]|Meeting, Filled the document with the answers to the doubts, pushed to git|
-|10-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]||
+|10-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|started with the Cori paper,skimming through the paper|
+|11-8-23|Work at Centogene||
+|12,13-8-23|-|Weekend|
+|14-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Understanding Poisson Distribution - a bit tricky|
+|15-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Understanding Gamma distribution|
+|16-8-23||Not well|
+|17-8-23|Virtual meet<br> Cori paper<br> Doc appointment|Bayessian inference|
+|18-8-23|Work at Centogene||
+|19,20-8-23|Weekend||
+|21-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Finishing Cori & supp paper|
+|22-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Obadia paper,Moment Generating function, R square|
+|23-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Finishing Obadia paper|
+|24,25-8-23| Flying to India||
+|26,27-8-23|Weekend||
+|28-8-23|Work at centogene||
+|29-8-23|Work at centogene||
+|30-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Wallinga_Teunis Paper|
+|31-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Wallinga_Teunis Paper,Thomson paper|
+|1-9-23|||
+|2,3-9-23|Weekend||
+
 

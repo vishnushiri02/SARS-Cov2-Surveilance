@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1691677037121
+updated: 1693802318736
 created: 1684497049640
 ---
 
@@ -16,14 +16,18 @@ created: 1684497049640
 
 ### **R<sub>0</sub>(Basic Reproduction Number):**
 
-The average number of secondary cases generated
-by an average infected person throughout their infectious period in a wholly susceptible population - **_when the population is fully susceptible_**
+The expected number of secondary cases generated
+by an average infected person(typical primary case) throughout their infectious period in a wholly susceptible population - **_when the population is fully susceptible_**
 
 ![Importance of R0](./assets/images/Importance%20of%20R0.png)
+
+### **Case Reproductive number or cohort reproductive number:**
+The average number of secondary cases arising from a primary case infected at time t. This can be estimated only after time t. So this is mostly observed number.
 
 ### **R(Effective Reproduction Number):**
 
 Number of secondary infections generated from a population consisting of both **_naïve/susceptible and exposed/immune individuals_** and therefore will always be less than R0.
+The effective reproduction number is also known as instantaneous reproductive number beacuse it is taken at a particular point of time as after the beginning of the endemic/pandemic.
 
 - #### **Backward looking R:**
 
@@ -47,7 +51,7 @@ Showing a significant level of serum antibodies, or other immunologic marker in 
 
 ## **Generation Time:**
 
-  The generation time, Ƭ, for an infectious disease is the time between **_infection_** events in an infector-infectee pair of individuals. 
+  The generation time, Ƭ, for an infectious disease is the time between **_infection_** events in an infector-infectee pair of individuals.
   It can be used to derieve the speed of the spread.
   Measuring Generation time is challenging because it is unobserved. Hence is usually replaced with serial time.
   However, ignoring the difference between the serial interval and generation time can lead to biased estimates of R.
@@ -72,7 +76,7 @@ Defines that in many cases 80% of the transmission results from 20% of the infec
 
 ## **Viral fitness:**
 
-The capacity of a virus (a serotype, clade, or variant) to become dominant in the field, relative to other serotypes, clades, or variants of the same virus has been defined as epidemiologic fitness 
+The capacity of a virus (a serotype, clade, or variant) to become dominant in the field, relative to other serotypes, clades, or variants of the same virus has been defined as epidemiologic fitness
 ![viral_fitness](assets/images/viral_fitness.png)
 
 [viral_fitness_reference](https://doi.org/10.1016/j.coviro.2012.07.007)
@@ -82,12 +86,14 @@ The capacity of a virus (a serotype, clade, or variant) to become dominant in th
 Prevalence differs from incidence in that prevalence includes all cases, both new and preexisting, in the population at the specified time, whereas incidence is limited to new cases only<br>
 Prevelance is calculated as:
 $$$
-Prevalance = \cfrac{Number\space of \space cases}{total \space population}
+Prevalance = \cfrac{Number\space of \space cases\space in\space the\space population\space at\space one\space time}{total \space population\space at\space that\space timera}
 $$$
+Incidence is the number of new cases during a specified time period.
 Incidence is calculated as:
 $$$
-Incidence = \cfrac{New\space cases}{total\space population}
+Incidence = \cfrac{New\space cases\space during\space a\space specified\space time }{total\space population\space at\space risk\space at\space that\space period\space of\space time\space}
 $$$
+[13]
 
 ## **Cumulative Incidence:**
 
@@ -114,7 +120,7 @@ Differential equation dependent on only a single independent variable. Read More
 In essence, splines are piecewise polynomials, joined at points called knots. The degree specifies the degree of the polynomials. A polynomial of degree 1 is just a line, so these would be linear splines. Cubic splines have polynomials of degree 3 and so on. The degrees of freedom (df) basically say how many parameters you have to estimate. They have a specific relationship with the number of knots and the degree, which depends on the type of spline.
   >```Note : B splines are splines that have local control - when the control point/knot is moved there is no much differnce in the other parrt of the curve.```
 
-- For B-splines: $df=𝑘+degree$ if you specify the knots or $𝑘=df−degree$ if you specify the degrees of freedom and the degree. 
+- For B-splines: $df=𝑘+degree$ if you specify the knots or $𝑘=df−degree$ if you specify the degrees of freedom and the degree.
 - For natural (restricted) cubic splines: $df=𝑘−1$ if you specify the knots or $𝑘=df+1$ if you specify the degrees of freedom.
 
 - As an example: A cubic spline (degree=3) with 4 (internal) knots will have $df=4+3=7$
@@ -134,8 +140,8 @@ degrees of freedom. Or: A cubic spline (degree=3) with 5 degrees of freedom will
 
 ## **Convolution of functions:**
 
-- A convolution is an integral that expresses the amount of overlap of one function g as it is shifted over another function  f. It therefore "blends" one function with another. 
-- Consider function **g** as impulse that acts on a continuous function **f** thereby modifying it a little. The impulse is not continuous or discreete because the impact of preceding impulse overlaps with the succeeding impulse. To account this we use convolution. Following is the convolution intergral. 
+- A convolution is an integral that expresses the amount of overlap of one function g as it is shifted over another function  f. It therefore "blends" one function with another.
+- Consider function **g** as impulse that acts on a continuous function **f** thereby modifying it a little. The impulse is not continuous or discreete because the impact of preceding impulse overlaps with the succeeding impulse. To account this we use convolution. Following is the convolution intergral.
   $$$
   (f*g)(t) = \int_{0}^\infin f(\tau)g(t-\tau)d\tau
   $$$
@@ -183,7 +189,6 @@ Covariance is used to measure/observe the trend in variability in two or more ra
   
   > The $\alpha$ and $\beta$ are not necessarily count of the event. They are just parameters that can be set based on the likeliness of the event or can be set randomly.
   
-
 ## **Dirichlet-multinomial distribution:**
 
 - Generalisation of the beta distribution for a vector of probabilities of random variables is Dirichlet distribution that is Dirichlet is multivariate and here we would have multiple parameters.
@@ -192,7 +197,7 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 - we use dirichlet when we just have a vector of of k categories and we use dirichlet-multinomial when we have along with the vector, observed data for n variables that can take any of the k categories.
 - The parameter alpha in the case of Dirichlet-multinomial will be summed with an additional term which accounts for multinomial likelihood.
 - Important condition $0\le\theta_j\le1$ and $\sum_{j=1}^k\theta_j=1$ since $\theta$ denotes the probability
-- PDF for Dirichlet distribution: 
+- PDF for Dirichlet distribution:
   $$$
   \theta\sim Dir(\alpha),\space \alpha_1,\alpha_2....\alpha_k>0\\
   Dir(\alpha)=\prod_{j=1}^k\theta_{j}^{\alpha_j-1}
@@ -224,7 +229,106 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 ## **Negative Binomial Distribution:**
 
  The negative binomial distribution is the probability distribution of the number of successes before the rth failure in a Bernoulli process, with probability p of successes on each trial.
+
+## **Poisson Distribution:**
+
+- A Poisson distribution is a discrete probability distribution, meaning that it gives the probability of a discrete (i.e., countable) outcome.
+
+- The  Poisson distribution is used to predict or explain the number of events occurring within a given interval of time or space. “Events” could be anything from disease cases to customer purchases to meteor strikes. The interval can be any specific amount of time or space, such as 10 days or 5 square inches.
+
+- The Poisson distribution can be used if:
+
+1. Individual events happen at random and independently. That is, the probability of one event doesn’t affect the probability of another event.
+2. The mean number of events occurring within a given interval of time or space is known.
+3. This number is called λ (lambda), and it is assumed to be constant.
+When events follow a Poisson distribution, λ is the only thing you need, to know to calculate the probability of an event occurring a certain number of times. [11]
+
+> Poisson distribution: If $\lambda =mean$ then the pdf of Poisson distribution is $P(X=k|\lambda)=\frac{\lambda^ke^{-\lambda}}{k!}$
+
+[What is poisson distribution and derivation of the formula part1](https://youtu.be/3z-M6sbGIZ0)<br>
+[What is poisson distribution and derivation of the formula part2](https://youtu.be/Jkr4FSrNEVY)
+
+> My understanding the Poisson distribution is similar to the binomial distribution in counting the number of success and failures but if we consider the trial in binomial distribution as time interval or space interval, then it is the poisson distribution. The difference is that in binomial distibution in a trial you get only one outcome but when considered as time interval then we can expect multiple outcomes - multiple success or failures. To bring the it to one outcome per unit time, the interval is granulated that is hours ----> minutes-----> seconds so the time interval n willl tend to infinity when we granulate it more and more. So basically poisson is a binomial distribution with n tending to infinity.
+
+## **Probability vs Likelihood:**
+
+Probability is used to find the chance of occurace of a particular situation whereas Likelihood is used to maximise the chances of occurance of a particular situation.
+Probability: $P(X=17|\mu=15,\sigma=2)$ So the chances of getting X=17 when the distribution has the given characteristics. The values that X would take can change but the the characteristic of the distribution will remmain. <br>
+Likelihood: $Likelihood(\mu=15,\sigma=2|X=17)$. Here the data distribution or the dataset features will be changed to get the maximum likelihood of getting X=17. [12] The likelihood can be said as the probability of getting X=17 when $\mu=15,\sigma=2$ so $L(\mu=15,\sigma=2|X=17)=P(X=17|\mu=15,\sigma=2)$ but it is not same as P(\mu=15,\sigma=2|X=17)
+
+## **Gamma Distribution:**
+
+Gamma distribution is a continuous probability distribution used to model the time that is elapsed before $\alpha$ occurances of an random event. Example calls to the pizza place - after how much time did the pizza place receive 10 calls. Or after how long there are 10000 defects in a production line. The Events are poisson process because the events occur independently and randomly.
+
+Derivation of the Gamma function:
+
+- Let X be elapsed time before $\alpha$<sup>th</sup> occurance of the event. Let $\theta$ be the average time between the occurances. Then the CDF of X is
+$$$\\
+P(X\le x)=1- P(less\space than\space \alpha\space occurances\space in\space less\space than\space x\space time)
+$$$
+- The subtrahend is a poisson distribution because it counts the number of occurances in a time unit. 
+- The average number of times the event can occur in x time is $\frac{x}{\theta}$. So thats the mean for the poisson distribution. The expression inside the summation is the probability of exactly k occurances in time x.
+$$$\\
+P(X\le x)=1-\sum_{k=0}^{\alpha-1}\frac{(x/\lambda)^ke^{-x/\lambda}}{k!}, \space x\ge0
+$$$
+Differentiating and simplifying this would give us the PDF of gamma distribution
+$$$\\
+f(x)=\frac{x^{\alpha-1}e^{-x/\theta}}{\Gamma(\alpha)\theta^\alpha}, \space x\ge0
+$$$
+The expected value for waiting time for $\alpha$ occurances is given by $\mu=\alpha\theta$ => $\theta$ is the average time between each occurances, $\alpha$ is the number of occurances so the average waiting time would be the product of both.
+
+The variance of gamma distribution is $\sigma^2=\alpha\theta^2\\$
+[Reference video](https://www.youtube.com/watch?v=cpW40zPdAQ8)
+
+## **Bayessian inference:**
+
+- My understanding - Bayessian theorem is used to claculate the posterior probability of a random variable given some observation. To find say P(A|B) we use P(B|A) along with prior probaility of P(A) and P(B). So calculating P(B|A) would be more easy than the otherway around thats why we use the bayesian inference to calculate P(A|B) with the easily calculated P(B|A).
+- [Bayes theorem derivation and explanantion](https://youtu.be/XQoLVl31ZfQ)
+- [Reference with multiple randome variables](https://math.stackexchange.com/questions/549887/bayes-theorem-with-multiple-random-variables)
+
+## **Coefficient of variation:**
+In probability theory and statistics, the coefficient of variation (COV), also known as Normalized Root-Mean-Square Deviation (NRMSD), Percent RMS, and relative standard deviation (RSD), is a **standardized measure of dispersion of a probability distribution or frequency distribution**. It is defined as the ratio of the standard deviation $\sigma$  to the mean $\mu$  (or its absolute value,$|\mu|$), and often expressed as a percentage ("%RSD"). The CV or RSD is widely used in analytical chemistry to express the precision and repeatability of an assay. 
+$\\CV=\frac{\sigma}{\mu}$
+
+## **Truncated Normal Distribution:**
+
+In probability and statistics, the truncated normal distribution is the probability distribution derived from that of a normally distributed random variable by bounding the random variable from either below or above.
+
+## **Censoring (Right/Left/Interval):**
+
++ In statistics, censoring is a condition in which the value of a measurement or observation is only partially known.
++ Left censoring – a data point is below a certain value but it is unknown by how much.
++ Interval censoring – a data point is somewhere on an interval between two values
++ Right censoring – a data point is above a certain value but it is unknown by how much.
+
+## **Moment Generating function:**
+In Statistics moments denote the characteristics of the distribution - the first order moment is the mean of the distribution, second order moment is the variance, third and fourth order moments are the skewness and kurtosis of the distribution respectively.
+A moment generating function is used to derieve the moment of the distribution. The probability distribution can be determined by its moment generating function.
+A Moment generating function of a random variable X is a function $M_X(s)$ and is defined as $M_X(s)=E[e^{sX}]$. Not all Random variables have moment generating function.If Expected value for X $E[exp(tX)]$ exists and is finite for all real numbers t belonging to a close interval $[-h,h]\subseteq 
+R$ with $h\ge0$, then we say X possesses a moment generating function $M_X(t)=E[exp(tX)]$
+
+## **R-squared:**
+R-squared is a statistical measure that indicates how much of the variation of a dependent variable is explained by an independent variable in a regression model. Whereas correlation explains the strength of the relationship between an independent and a dependent variable, R-squared explains the extent to which the variance of one variable explains the variance of the second variable. $R^2$ is easy to intepret and easy to calculate too.
+
+## **Exponential Function and e (Euler's number):**
+
+- The Euler's number is used in an exponentially growing function. 
+- e is used to describe the 100% continual growth for a end of a period. If the Growth for a time interval follows a trend $(1+r)$ where r is the rate. If this calculation is done for a subdivided time intervals the this would become as $(1+\frac{r}{n})^n$, this would result in a irrational number greater than 2 and less than 3. This generslised with the Euler's number . - If  To find the growth for x=2 periods then we use $e^x$.
+- 100 changes of 1 percent rate also gives e:- $(1+.01)^{100}=2.7048$ So we can say $growth=(e^{rate})^{time}$
+- $(1+.01)^{100}=e\\(1+.01)^{50}=(1+.01)^{\frac{100}{2}}=e^{\frac{1}{2}}$
+- e can match a stair case growth can be modelled with e into a smoother curve.[14]
+- [Refernce video regarding the e](https://youtu.be/pg827uDPFqA?feature=shared)
   
+## **Latent period:**
+The period from the time of infection to the time of becoming infectious is called the pre-infectious period or the latent period.
+![latent period](assets/images/Concept_of_incubation_period.webp)
+
+## **Contact Rate:**
+The average number of contacts adequate for disease transmission by an individual per unit time. It can vary by time and it is not a constant qunatity.
+
+## **Expectation maximization algorithm:**
+This algorithm is used to find the maximum likelihood parameters of a statistical model. These model aparat from the unknown parameters also include known data observations. It is an itreative method EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step.
+
 [1]: <https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module3-Frequency-Association/PH717-Module3-Frequency-Association4.html#:~:text=Cumulative%20Incidence%20Versus%20Incidence%20Rate,-There%20are%20two&text=Cumulative%20incidence%20is%20the%20proportion,%22%20(person%2Dtime)>
 
 [2]: <Whittemore AS. Evaluating health risk models. Stat Med. 2010 Oct 15;29(23):2438-52. doi: 10.1002/sim.3991. PMID: 20623821; PMCID: PMC2990501>
@@ -241,4 +345,7 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 [8]: <https://datascience.stackexchange.com/questions/53226/what-is-the-purpose-of-logit-function-at-what-stage-of-model-building-process-t>
 [9]: <https://towardsdatascience.com/understanding-the-covariance-matrix-92076554ea44>
 [10]: <https://gregorygundersen.com/blog/2020/12/24/dirichlet-multinomial/>
-
+[11]: <https://www.scribbr.com/statistics/poisson-distribution/>
+[12]: <https://medium.com/swlh/probability-vs-likelihood-cdac534bf523>
+[13]: <https://s4be.cochrane.org/blog/2020/11/06/prevalence-vs-incidence-what-is-the-difference/#:~:text=Two%20types%20of%20incidence%20are,%27%20and%20%27incidence%20rate%27.>
+[14]:<https://betterexplained.com/articles/an-intuitive-guide-to-exponential-functions-e/#:~:text=e%20is%20the%20base%20rate,growing%20just%20a%20little%20bit.>

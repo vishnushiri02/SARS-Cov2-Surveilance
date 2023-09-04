@@ -1,12 +1,13 @@
 ---
-id: 5gbivzjsbzwfsd94vmku5is
-title: The extra resources
+id: r5j2mun2um7dmxyv9u6zd29
+title: 'The extra resources'
 desc: ''
-updated: 1691657505239
-created: 1691657413999
+updated: 1692784650676
+created: 1692092505210
 traitIds:
   - meetingNote
 ---
+
 ## Attendees
 
 <!-- Meeting attendees. If you prefix users with an '@', you can then optionally click Ctrl+Enter to create a note for that user. -->
@@ -20,6 +21,9 @@ traitIds:
 ## Doubts
 
 <!-- Any doubts to be cleared -->
+### Cori paper:
+
+[[Doubts|growth_rate_estimation.ExtraResources#doubts]]
 
 
 

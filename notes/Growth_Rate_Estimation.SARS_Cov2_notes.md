@@ -2,10 +2,15 @@
 id: dm29gl6lytt8sj0b96z6pg8
 title: SARS_Cov2_notes
 desc: This scratchpad contains vatious notes
-updated: 1691505975483
+updated: 1692786240151
 created: 1684740753208
 ---
 
+
+## Questions to ponder on:
+
+1. Will there be any difference in the charaacteristics of the transmissabiity variables of epidemic and pandemic
+2. 
 ## **Facts on SARS-CoV2:**
 
 - The SARS-CoV-2 virus accumulates approximately 24 point muta- tions per year, or 0.3 mutations per viral generation [3]
@@ -66,7 +71,9 @@ created: 1684740753208
  of data is deaths other information is required such as the probability distribution of times from infection to death
  and the fraction who die from infection.[1]
   
-  
+## **Resources that can be used for the dissertation**:
+
+- [Achaiah, Nithya C et al. “R0 and Re of COVID-19: Can We Predict When the Pandemic Outbreak will be Contained?.” Indian journal of critical care medicine : peer-reviewed, official publication of Indian Society of Critical Care Medicine vol. 24,11 (2020): 1125-1127. doi:10.5005/jp-journals-10071-23649](https://www.ijccm.org/doi/pdf/10.5005/jp-journals-10071-23649)
   
 <!--References-->
   [1]: <./assets/Reference%20literature/set-covid-19-R-estimates.pdf> 
