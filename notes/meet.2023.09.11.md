@@ -1,12 +1,13 @@
 ---
-id: r5j2mun2um7dmxyv9u6zd29
-title: 'The extra resources'
-desc: ''
-updated: 1693834569387
-created: 1692092505210
+id: wvfgibsb8eq3x4x73uo4o0m
+title: 'Implementation of the R packages'
+desc: 'The task discussed at the end of the last meeting is to implement the R_0 and Epiestim R packages on the provided example data.'
+updated: 1693834731047
+created: 1693834645993
 traitIds:
   - meetingNote
 ---
+_Edit the [[templates.meet]] note to change this template generated for Dendron Meeting Notes._
 
 ## Attendees
 
@@ -15,21 +16,24 @@ traitIds:
 - Dr. Daniela Börnigen
 
 ## Work done so far
-
+[[Tasks|meet.2023.08.17#tasks]]
 <!-- What has been done so far -->
-Read the papers
+
 ## Doubts
 
 <!-- Any doubts to be cleared -->
+
+
+
 ## Next Step
-Implementing the model data provided by each R package - EpiEstim and R_0 package
+
 <!-- What should  I work on till the next meeting-->
 
 ## Tasks
 
 <!-- You can add any follow up items here. If they require more detail, you can use `Create Task Note` to create each follow up item as a separate note. -->
 
-- [] Try running the R package on data being provided
-- [] Try Gerstung paper in a docker environment
+- [ ]
+- [ ]
 - [ ]
 - [ ]
