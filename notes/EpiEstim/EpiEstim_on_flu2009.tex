@@ -1,0 +1,740 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Epi\_Estim\_on\_flu\_2009},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Epi\_Estim\_on\_flu\_2009}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+This is an \href{http://rmarkdown.rstudio.com}{R Markdown} Notebook.
+When you execute code within the notebook, the results appear beneath
+the code.
+
+\emph{Run} - \emph{Cmd+Shift+Enter}.
+
+\emph{The dataset contains:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The \emph{daily incidence} of onset of acute respiratory illness (ARI,
+  defined as at least two symptoms among fever, cough, sore throat, and
+  runny nose) amongst children in a school in Pennsylvania during the
+  2009 H1N1 influenza pandemic (see Cauchemez et al., PNAS, 2011),
+\end{enumerate}
+
+2.The discrete \emph{daily distribution of the serial interval} (time
+interval between symptoms onset in a case and in their infector) for
+influenza, assuming a shifted Gamma distribution with mean 2.6 days,
+standard deviation 1.5 days and shift 1 day (as in Ferguson et al.,
+Nature, 2005).
+
+3.\emph{Interval-censored serial interval data} from the 2009 outbreak
+of H1N1 influenza in San Antonio, Texas, USA (from Morgan et al., EID
+2010).
+
+\emph{Loading the input rda file} which has data regarding incidence,
+serial interval and serial interval distribution.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(EpiEstim)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{load}\NormalTok{(}\AttributeTok{file=}\StringTok{\textquotesingle{}Flu2009.rda\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{Data viewing}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#incidence}
+\NormalTok{Flu2009}\SpecialCharTok{$}\NormalTok{incidence}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         dates  I
+## 1  2009-04-27  1
+## 2  2009-04-28  1
+## 3  2009-04-29  0
+## 4  2009-04-30  2
+## 5  2009-05-01  5
+## 6  2009-05-02  3
+## 7  2009-05-03  3
+## 8  2009-05-04  3
+## 9  2009-05-05  6
+## 10 2009-05-06  2
+## 11 2009-05-07  5
+## 12 2009-05-08  9
+## 13 2009-05-09 13
+## 14 2009-05-10 12
+## 15 2009-05-11 13
+## 16 2009-05-12 11
+## 17 2009-05-13 12
+## 18 2009-05-14  6
+## 19 2009-05-15  6
+## 20 2009-05-16  6
+## 21 2009-05-17  3
+## 22 2009-05-18  1
+## 23 2009-05-19  0
+## 24 2009-05-20  2
+## 25 2009-05-21  0
+## 26 2009-05-22  0
+## 27 2009-05-23  0
+## 28 2009-05-24  0
+## 29 2009-05-25  2
+## 30 2009-05-26  0
+## 31 2009-05-27  2
+## 32 2009-05-28  0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#Serial interval distribution}
+\NormalTok{Flu2009}\SpecialCharTok{$}\NormalTok{si\_distr}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.000 0.233 0.359 0.198 0.103 0.053 0.027 0.014 0.007 0.003 0.002 0.001
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# serial interval data}
+\DocumentationTok{\#\# EL/ER show the lower/upper bound of the symptoms onset date in the infector}
+\DocumentationTok{\#\# SL/SR show the same for the secondary case}
+\DocumentationTok{\#\# type has entries 0 corresponding to doubly interval{-}censored data}
+\NormalTok{Flu2009}\SpecialCharTok{$}\NormalTok{si\_data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    EL ER SL SR type
+## 1   0  1  7  8    0
+## 2   0  1  2  3    0
+## 3   0  1  3  4    0
+## 4   0  1  2  5    0
+## 5   0  1  1  9    0
+## 6   0  1  2  4    0
+## 7   0  1  4  6    0
+## 8   0  1  4  5    0
+## 9   0  1  1  2    0
+## 10  0  1  4  5    0
+## 11  0  1  5  6    0
+## 12  0  1  4  5    0
+## 13  0  1  8  9    0
+## 14  0  1  3  4    0
+## 15  0  1  5  6    0
+## 16  0  1  4  5    0
+\end{verbatim}
+
+\emph{Plotting daily incidence data against dates using R package called
+the incidence.} This package provides functions and classes to compute,
+handle and visualise incidence from dated events for a defined time
+interval. Dates can be provided in various standard formats. The class
+`incidence' is used to store computed incidence and can be easily
+manipulated, subsetted, and plotted. In addition, log-linear models can
+be fitted to `incidence' objects using `fit'. as.data.frame(object
+obtained from as.incidence or incidence function)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(incidence)}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{as.incidence}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence}\SpecialCharTok{$}\NormalTok{I, }\AttributeTok{dates =}\NormalTok{ Flu2009}\SpecialCharTok{$}\NormalTok{incidence}\SpecialCharTok{$}\NormalTok{dates))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: The `guide` argument in `scale_*()` cannot be `FALSE`. This was deprecated in
+## ggplot2 3.3.4.
+## i Please use "none" instead.
+## i The deprecated feature was likely used in the incidence package.
+##   Please report the issue at <https://github.com/reconhub/incidence/issues>.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-3-1.pdf}
+\#\# Estimating R with parametric serial interval distribution:
+
+\emph{Using estimate\_R on the incidence data to estimate the
+reproduction number R}. The time windows over which R is estimated and
+the serial interval distribution is specified to this function.the
+default behavior is to estimate R over weekly sliding windows. This can
+be changed through the config\$t\_start and config\$t\_end arguments
+(see below, ``Changing the time windows for estimation''). method
+parametric\_si enables just specifiying mean and standard deviation.
+When using the parametric\_si an offset gamma distribution is used for
+the serial interval.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r\_parametric\_si}\OtherTok{\textless{}{-}}\FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence,}\AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{,}\AttributeTok{config =} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean\_si=}\FloatTok{2.6}\NormalTok{,}\AttributeTok{std\_si=}\FloatTok{1.5}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r\_parametric\_si}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $R
+##    t_start t_end   Mean(R)     Std(R) Quantile.0.025(R) Quantile.0.05(R)
+## 1        2     8 1.7357977 0.40913143        1.02874370       1.12193325
+## 2        3     9 1.7491678 0.36472669        1.10882231       1.19547993
+## 3        4    10 1.5370581 0.30741163        0.99470299       1.06869352
+## 4        5    11 1.4318389 0.27059213        0.95144658       1.01766106
+## 5        6    12 1.4227247 0.25150457        0.97314263       1.03580815
+## 6        7    13 1.6353733 0.25234358        1.17863324       1.24358968
+## 7        8    14 1.6639845 0.23300443        1.23894574       1.30015068
+## 8        9    15 1.6161467 0.20692639        1.23622420       1.29149686
+## 9       10    16 1.4344239 0.17656537        1.10938331       1.15686977
+## 10      11    17 1.4087217 0.16159146        1.10991245       1.15387452
+## 11      12    18 1.2479472 0.14221678        0.98486038       1.02359091
+## 12      13    19 1.0821477 0.12579711        0.84971868       0.88387071
+## 13      14    20 0.9371671 0.11449319        0.72629165       0.75712322
+## 14      15    21 0.8196564 0.10762616        0.62239946       0.65101748
+## 15      16    22 0.6910352 0.10188759        0.50592464       0.53240938
+## 16      17    23 0.5896765 0.09967353        0.41073132       0.43584912
+## 17      18    24 0.4992206 0.09984413        0.32306927       0.34710064
+## 18      19    25 0.4729631 0.10850519        0.28475471       0.30971499
+## 19      20    26 0.4176319 0.11583024        0.22237137       0.24703176
+## 20      21    27 0.2978682 0.11258359        0.11975846       0.13979872
+## 21      22    28 0.2400880 0.12004401        0.06541591       0.08200917
+## 22      23    29 0.4573477 0.20453212        0.14849956       0.18020868
+## 23      24    30 0.6734382 0.30117074        0.21866356       0.26535481
+## 24      25    31 0.8591897 0.38424130        0.27897655       0.33854643
+## 25      26    32 0.9975352 0.44611130        0.32389696       0.39305871
+##    Quantile.0.25(R) Median(R) Quantile.0.75(R) Quantile.0.95(R)
+## 1         1.4451981 1.7037612        1.9915200        2.4589724
+## 2         1.4913446 1.7238839        1.9794569        2.3891206
+## 3         1.3200896 1.5166133        1.7317605        2.0751763
+## 4         1.2412511 1.4148298        1.6039005        1.9040473
+## 5         1.2459958 1.4079324        1.5833401        1.8601072
+## 6         1.4588473 1.6224126        1.7977785        2.0713724
+## 7         1.5014679 1.6531215        1.8146646        2.0648767
+## 8         1.4721862 1.6073240        1.7504931        1.9708944
+## 9         1.3117168 1.4271858        1.5492434        1.7366694
+## 10        1.2966267 1.4025479        1.5140885        1.6846295
+## 11        1.1493086 1.2425490        1.3407028        1.4907183
+## 12        0.9948535 1.0772771        1.1641340        1.2970399
+## 13        0.8576141 0.9325088        1.0116437        1.1331024
+## 14        0.7447274 0.8149506        0.8894575        1.0043487
+## 15        0.6198605 0.6860342        0.7567610        0.8667218
+## 16        0.5197437 0.5840702        0.6535019        0.7626306
+## 17        0.4287515 0.4925804        0.5624580        0.6739958
+## 18        0.3959768 0.4646919        0.5409442        0.6644328
+## 19        0.3348031 0.4069735        0.4888632        0.6246028
+## 20        0.2162803 0.2838104        0.3641850        0.5039247
+## 21        0.1521750 0.2204045        0.3066781        0.4653900
+## 22        0.3081243 0.4272459        0.5739193        0.8372682
+## 23        0.4537089 0.6291137        0.8450883        1.2328660
+## 24        0.5788533 0.8026393        1.0781852        1.5729218
+## 25        0.6720595 0.9318792        1.2517931        1.8261915
+##    Quantile.0.975(R)
+## 1          2.6247813
+## 2          2.5331192
+## 3          2.1955399
+## 4          2.0088487
+## 5          1.9563365
+## 6          2.1657455
+## 7          2.1507413
+## 8          2.0461979
+## 9          1.8005896
+## 10         1.7426100
+## 11         1.5417063
+## 12         1.3422512
+## 13         1.1745108
+## 14         1.0436503
+## 15         0.9045582
+## 16         0.8004706
+## 17         0.7130887
+## 18         0.7081443
+## 19         0.6734020
+## 20         0.5557145
+## 21         0.5262293
+## 22         0.9367934
+## 23         1.3794155
+## 24         1.7598935
+## 25         2.0432690
+## 
+## $method
+## [1] "parametric_si"
+## 
+## $si_distr
+##           t0           t1           t2           t3           t4           t5 
+## 0.000000e+00 2.331721e-01 3.585794e-01 1.981108e-01 1.033427e-01 5.290518e-02 
+##           t6           t7           t8           t9          t10          t11 
+## 2.682146e-02 1.351620e-02 6.783438e-03 3.394351e-03 1.694674e-03 8.445945e-04 
+##          t12          t13          t14          t15          t16          t17 
+## 4.203313e-04 2.089422e-04 1.037609e-04 5.148480e-05 2.552773e-05 1.264952e-05 
+##          t18          t19          t20          t21          t22          t23 
+## 6.264667e-06 3.101068e-06 1.534394e-06 7.589168e-07 3.752319e-07 1.854675e-07 
+##          t24          t25          t26          t27          t28          t29 
+## 9.164543e-08 4.527299e-08 2.235952e-08 1.104051e-08 5.450375e-09 2.690170e-09 
+##          t30          t31          t32 
+## 1.327568e-09 6.550364e-10 0.000000e+00 
+## 
+## $SI.Moments
+##   Mean     Std
+## 1  2.6 1.55488
+## 
+## $dates
+##  [1] "2009-04-27" "2009-04-28" "2009-04-29" "2009-04-30" "2009-05-01"
+##  [6] "2009-05-02" "2009-05-03" "2009-05-04" "2009-05-05" "2009-05-06"
+## [11] "2009-05-07" "2009-05-08" "2009-05-09" "2009-05-10" "2009-05-11"
+## [16] "2009-05-12" "2009-05-13" "2009-05-14" "2009-05-15" "2009-05-16"
+## [21] "2009-05-17" "2009-05-18" "2009-05-19" "2009-05-20" "2009-05-21"
+## [26] "2009-05-22" "2009-05-23" "2009-05-24" "2009-05-25" "2009-05-26"
+## [31] "2009-05-27" "2009-05-28"
+## 
+## $I
+##  [1]  1  1  0  2  5  3  3  3  6  2  5  9 13 12 13 11 12  6  6  6  3  1  0  2  0
+## [26]  0  0  0  2  0  2  0
+## 
+## $I_local
+##  [1]  0  1  0  2  5  3  3  3  6  2  5  9 13 12 13 11 12  6  6  6  3  1  0  2  0
+## [26]  0  0  0  2  0  2  0
+## 
+## $I_imported
+##  [1] 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## 
+## attr(,"class")
+## [1] "estimate_R"
+\end{verbatim}
+
+The function estimate\_R results in Reproductive number for each sliding
+window the mean,std,quantiles of R. Apart from that it also gives the
+daily si\_distribution, Incidence counts on each day and differentiate
+local and imported incidence. I assume the first index case is by
+default assumed as imported case. The results are plotted in different
+graphs - one for R, one for SI\_distribution and one more for
+Incidence(Epidemic curve)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(r\_parametric\_si,}\AttributeTok{legend =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-6-1.pdf}
+\#\# Estimating R with non-parametric serial interval distribution:
+
+This is done when the complete distribution of serial interval is known.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r\_non\_parametric\_si }\OtherTok{\textless{}{-}}\FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence,}\AttributeTok{method =} \StringTok{"non\_parametric\_si"}\NormalTok{, }\AttributeTok{config =} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{si\_distr=}\NormalTok{Flu2009}\SpecialCharTok{$}\NormalTok{si\_distr)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\emph{Visualization of the estimation}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(r\_non\_parametric\_si,}\StringTok{"all"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-8-1.pdf}
+\#\# Estimating R accounting for uncertainity of serial interval
+distribution: During the early time periods in the outbreak serial
+interval distribution is poorly documented. In such cases estimate\_R
+allows inclusion of n serial distributions - n pairs of mean and
+standard deviation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{config }\OtherTok{\textless{}{-}} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean\_si =} \FloatTok{2.6}\NormalTok{, }\AttributeTok{std\_mean\_si =} \DecValTok{1}\NormalTok{,}
+                           \AttributeTok{min\_mean\_si =} \DecValTok{1}\NormalTok{, }\AttributeTok{max\_mean\_si =} \FloatTok{4.2}\NormalTok{,}
+                           \AttributeTok{std\_si =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{std\_std\_si =} \FloatTok{0.5}\NormalTok{,}
+                           \AttributeTok{min\_std\_si =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{max\_std\_si =} \FloatTok{2.5}\NormalTok{))}
+\NormalTok{r\_uncertain\_si}\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence, }\AttributeTok{method =} \StringTok{"uncertain\_si"}\NormalTok{, }\AttributeTok{config =}\NormalTok{ config)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(r\_uncertain\_si)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-9-1.pdf}
+The third plot shows all the Serial interval distributions considered.
+
+\hypertarget{estimating-r-and-the-serial-interval-using-data-on-pairs-infectorinfected}{%
+\subsection{Estimating R and the serial interval using data on pairs
+infector/infected}\label{estimating-r-and-the-serial-interval-using-data-on-pairs-infectorinfected}}
+
+Serial interval is estimated from the interval censored data using MCMC.
+The reproduction number is then estimated using the posterior
+distribution of the SI, hence accounting for the uncertainty associated
+with this estimate. As the Epidemic progresses newly accounted data can
+be incorporated in this method while it is not possible if we use the
+parametric\_si method.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{MCMC\_seed }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{overall\_seed }\OtherTok{\textless{}{-}} \DecValTok{2}
+\NormalTok{mcmc\_control }\OtherTok{\textless{}{-}} \FunctionTok{make\_mcmc\_control}\NormalTok{(}\AttributeTok{seed =}\NormalTok{ MCMC\_seed, }
+                                  \AttributeTok{burnin =} \DecValTok{1000}\NormalTok{)}
+\NormalTok{dist }\OtherTok{\textless{}{-}} \StringTok{"G"} \CommentTok{\# fitting a Gamma dsitribution for the SI}
+\NormalTok{config }\OtherTok{\textless{}{-}} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{si\_parametric\_distr =}\NormalTok{ dist,}
+                           \AttributeTok{mcmc\_control =}\NormalTok{ mcmc\_control,}
+                           \AttributeTok{seed =}\NormalTok{ overall\_seed, }
+                           \AttributeTok{n1 =} \DecValTok{50}\NormalTok{, }
+                           \AttributeTok{n2 =} \DecValTok{50}\NormalTok{))}
+\NormalTok{res\_si\_from\_data }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence,}
+                               \AttributeTok{method =} \StringTok{"si\_from\_data"}\NormalTok{,}
+                               \AttributeTok{si\_data =}\NormalTok{ Flu2009}\SpecialCharTok{$}\NormalTok{si\_data,}
+                               \AttributeTok{config =}\NormalTok{ config)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\begin{verbatim}
+## Running 1500 MCMC iterations 
+## MCMCmetrop1R iteration 1 of 1500 
+## function value =  -27.68336
+## theta = 
+##    1.67335
+##   -0.27928
+## Metropolis acceptance rate = 0.00000
+## 
+## MCMCmetrop1R iteration 1001 of 1500 
+## function value =  -29.17093
+## theta = 
+##    1.07173
+##    0.18715
+## Metropolis acceptance rate = 0.54246
+## 
+## 
+## 
+## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+## The Metropolis acceptance rate was 0.55267
+## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+## 
+## Gelman-Rubin MCMC convergence diagnostic was successful.
+## 
+## @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+## Estimating the reproduction number for these serial interval estimates...
+##  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(res\_si\_from\_data, }\AttributeTok{legend =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-10-1.pdf}
+\#\# Changing the time window of estimation Changing the time window
+through config\(t_start and config\)t\_end First one would look similar
+to the previous parametric\_si results because it is weekly
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence)}
+\DocumentationTok{\#\#32}
+\NormalTok{t\_start }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{, T}\DecValTok{{-}6}\NormalTok{) }\CommentTok{\# starting at 2 as conditional on the past observations}
+\DocumentationTok{\#\#2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26}
+\NormalTok{t\_end }\OtherTok{\textless{}{-}}\NormalTok{ t\_start }\SpecialCharTok{+} \DecValTok{6} \CommentTok{\# adding 6 to get 7{-}day windows as bounds included in window}
+\DocumentationTok{\#\#8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32}
+\NormalTok{res\_weekly }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence, }
+                         \AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{,}
+                         \AttributeTok{config =} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}
+                           \AttributeTok{t\_start =}\NormalTok{ t\_start,}
+                           \AttributeTok{t\_end =}\NormalTok{ t\_end,}
+                           \AttributeTok{mean\_si =} \FloatTok{2.6}\NormalTok{, }
+                           \AttributeTok{std\_si =} \FloatTok{1.5}\NormalTok{))}
+\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(res\_weekly, }\StringTok{"all"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-11-1.pdf}
+\emph{Bi weekly}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_start }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{, T}\DecValTok{{-}13}\NormalTok{) }\CommentTok{\# starting at 2 as conditional on the past observations}
+\DocumentationTok{\#\# 2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19}
+\NormalTok{t\_end }\OtherTok{\textless{}{-}}\NormalTok{ t\_start }\SpecialCharTok{+} \DecValTok{13} 
+\DocumentationTok{\#\#15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32}
+\NormalTok{res\_biweekly }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence, }
+                           \AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{,}
+                           \AttributeTok{config =} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}
+                             \AttributeTok{t\_start =}\NormalTok{ t\_start,}
+                             \AttributeTok{t\_end =}\NormalTok{ t\_end,}
+                             \AttributeTok{mean\_si =} \FloatTok{2.6}\NormalTok{, }
+                             \AttributeTok{std\_si =} \FloatTok{1.5}\NormalTok{))}
+\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(res\_biweekly, }\StringTok{"all"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-12-1.pdf}
+Estimating R on intervals of interest
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_start }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{25}\NormalTok{) }\CommentTok{\# starting at 2 as conditional on the past observations}
+\NormalTok{t\_end }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{17}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{32}\NormalTok{)}
+\NormalTok{res\_before\_during\_after\_closure }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence, }
+                                              \AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{,}
+                                              \AttributeTok{config =} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}
+                                                \AttributeTok{t\_start =}\NormalTok{ t\_start,}
+                                                \AttributeTok{t\_end =}\NormalTok{ t\_end,}
+                                                \AttributeTok{mean\_si =} \FloatTok{2.6}\NormalTok{, }
+                                                \AttributeTok{std\_si =} \FloatTok{1.5}\NormalTok{))}
+\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(res\_before\_during\_after\_closure,}\StringTok{"R"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{geom\_hline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{yintercept=}\DecValTok{1}\NormalTok{),}\AttributeTok{color=}\StringTok{"red"}\NormalTok{, }\AttributeTok{lty=} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-13-1.pdf}
+\#\# Different way to specify incidence
+
+Incidence can just be the counts of the cases and not including the
+dates. This will just have impact on x axis
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{config }\OtherTok{\textless{}{-}} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{mean\_si =} \FloatTok{2.6}\NormalTok{, }\AttributeTok{std\_si =} \FloatTok{1.5}\NormalTok{))}
+\NormalTok{res\_incid\_vector }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence}\SpecialCharTok{$}\NormalTok{I, }
+                               \AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{,}
+                               \AttributeTok{config =}\NormalTok{ config)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(res\_incid\_vector,}\StringTok{"all"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-14-1.pdf}
+\#\# Estimating R just by giving the dates for each case rather than the
+count on each dates
+
+The following command manipulates the dates data set - if on a
+particular date there are 5 cases, then this date is repeated 5 times.
+rep(i,Flu2009\$incidence\$I{[}i{]}) =\textgreater{} i is the iteration
+number, Flu2009\(incidence\)I{[}i{]} denotes the ith data in the \$I of
+incidence. i is then repeated Flu2009\(incidence\)I{[}i{]} times.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{T }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence)}
+\NormalTok{dates\_onset }\OtherTok{\textless{}{-}}\NormalTok{ Flu2009}\SpecialCharTok{$}\NormalTok{incidence}\SpecialCharTok{$}\NormalTok{dates[}\FunctionTok{unlist}\NormalTok{(}\FunctionTok{lapply}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(Flu2009}\SpecialCharTok{$}\NormalTok{incidence)), }\ControlFlowTok{function}\NormalTok{(i) }
+  \FunctionTok{rep}\NormalTok{(i, Flu2009}\SpecialCharTok{$}\NormalTok{incidence}\SpecialCharTok{$}\NormalTok{I[i])))]}
+\NormalTok{last\_date }\OtherTok{\textless{}{-}}\NormalTok{ Flu2009}\SpecialCharTok{$}\NormalTok{incidence}\SpecialCharTok{$}\NormalTok{date[T]}
+\NormalTok{res\_incid\_class }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(}\FunctionTok{incidence}\NormalTok{(dates\_onset, }\AttributeTok{last\_date =}\NormalTok{ last\_date), }
+                              \AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{,}
+                              \AttributeTok{config =}\NormalTok{ config)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(res\_incid\_class,}\StringTok{"all"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-15-1.pdf}
+\#\# specifying imported cases
+
+Including the information regarding local or importation of cases.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{location }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"local"}\NormalTok{,}\StringTok{"imported"}\NormalTok{), }\FunctionTok{length}\NormalTok{(dates\_onset), }\AttributeTok{replace=}\ConstantTok{TRUE}\NormalTok{) }\CommentTok{\#Randomply assigning each cases on each day as locaal or imported.}
+\NormalTok{location[}\DecValTok{1}\NormalTok{]}\OtherTok{\textless{}{-}} \StringTok{"imported"} \CommentTok{\#Forcing the first case to be imported}
+\NormalTok{incid}\OtherTok{\textless{}{-}}\FunctionTok{incidence}\NormalTok{(dates\_onset,}\AttributeTok{groups =}\NormalTok{ location)}
+\FunctionTok{plot}\NormalTok{(incid)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{res\_with\_imports }\OtherTok{\textless{}{-}} \FunctionTok{estimate\_R}\NormalTok{(incid,}\AttributeTok{method=}\StringTok{"parametric\_si"}\NormalTok{, }\AttributeTok{config =} \FunctionTok{make\_config}\NormalTok{(}\FunctionTok{list}\NormalTok{(}
+                   \AttributeTok{mean\_si =} \FloatTok{2.6}\NormalTok{, }\AttributeTok{std\_si =} \FloatTok{1.5}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Default config will estimate R on weekly sliding windows.
+##     To change this change the t_start and t_end arguments.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(res\_with\_imports, }\AttributeTok{add\_imported\_cases=}\ConstantTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The number of colors (8) did not match the number of groups (2).
+## Using `col_pal` instead.
+\end{verbatim}
+
+\includegraphics{EpiEstim_on_flu2009_files/figure-latex/unnamed-chunk-17-1.pdf}
+add\_imported\_cases: A boolean to specify whether, on the incidence
+time series plot, to add the incidence of imported cases. Add a new
+chunk by clicking the \emph{Insert Chunk} button on the toolbar or by
+pressing \emph{Cmd+Option+I}.
+
+When you save the notebook, an HTML file containing the code and output
+will be saved alongside it (click the \emph{Preview} button or press
+\emph{Cmd+Shift+K} to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the
+editor. Consequently, unlike \emph{Knit}, \emph{Preview} does not run
+any R code chunks. Instead, the output of the chunk when it was last run
+in the editor is displayed.
+
+\end{document}

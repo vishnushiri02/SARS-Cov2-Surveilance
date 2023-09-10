@@ -1,0 +1,47 @@
+---
+title: "R_0Package-demonstration"
+output: html_document
+date: "2023-09-09"
+---
+The R_0 package provides the freedom of using several documented methods to estimate either basic reproduction number or effective reproduction number from the incident data. First thing first loading the R0 package
+```{r}
+install.packages("R0")
+library(R0)
+```
+
+## Viewing the data
+```{r}
+#data() - This lists the available data sets. I am choosing the Germany.1918 data set.
+ed<-data("Germany.1918") #Loads the data
+Germany.1918
+```
+The Germany.1918 is incidence data that gives the number of cases on each day(specified by date). Key is the date and value is the number cases. This is called a name vector in r. Accessing with key as the following first command it will produce both key and value. second and thrid commands are way to access just the numbers. 4th and 5th command can be used to just extract numbers and name from the object.
+
+```{r}
+Germany.1918["1918-09-29"]
+unname(Germany.1918["1918-09-29"])
+Germany.1918[["1918-09-29"]]
+unname(Germany.1918)
+names(Germany.1918)
+```
+## check.incid 
+This function is used to generate an object that has the data in a format that is compatible with the estimation function.
+```{r}
+incidence<-unname(Germany.1918)
+dates<-names(Germany.1918)
+input_incidence<-check.incid(incidence,t=dates)
+```
+Experimenting check.incid by just giving the initial date and time step. 
+```{r}
+check.incid(incidence,date.first.obs ="1918-09-29",time.step = 1 )
+```
+No matter if the date vectors are given or no matter if the start data and time step value is given, check.incid function generates date vector.
+## Finding best fitting GT distribution
+This function is used to fit a Generation time distribution for two types of input. one is 2 vectors of dates denoting the onset of symptoms in the infector and infectee pair. One more is vector of values that represents the time lag between symptoms onset for pairs of infector/infectee, for a dataset of complete traced cases. Each value accounts for a pair of infector/infectee. This serial interval is often substitued for the generation time distribution, as it is easier to observe. Now the second type of data is being used.
+```{r}
+data("H1N1.serial.interval")
+est.GT(serial.interval =H1N1.serial.interval, request.plot = TRUE)
+```
+
+
+

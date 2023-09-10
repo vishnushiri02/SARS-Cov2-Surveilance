@@ -2,7 +2,7 @@
 id: urvehi4ygxtjn16au66boqz
 title: Extra resources
 desc: 'This note will consolidate ideas from other papers. '
-updated: 1693834023287
+updated: 1694182289323
 created: 1691675878724
 traitIds:
   - meetingNote
@@ -279,9 +279,21 @@ jointly from incidence data and from posterior distribution of serial interval t
 2. Following [[Anne Cori et al.,|growth_rate_estimation.ExtraResources#a-new-framework-and-software-to-estimate-time-varying-reproduction-numbers-during-epidemics---anne-cori]] $R_t$ is defined as ratio of number of new locally infected cases to the total infection potential across all the infected individual at time t. The total infectious potential is calculated as:
   $$$\\
   \wedge_t(w_s)=\sum_{s=1}^t(I_{t-s}^{Local}+I_{t-s}^{imported})w_s=\sum_{s=1}^tI_{t-s}w_s$$$
-1. The Equations are more similar to the equations in the Cori paper section but there are sampled serial interval distributions which are included to get the posterior probability of reproduction number
+3. The Equations are more similar to the equations in the Cori paper section but there are sampled serial interval distributions which are included to get the posterior probability of reproduction number
+
+## **Implementation of EpiEstim**
+### Doubts:
+1. What exactly is the si_distr and si_data present in the rda file? I assume it is observed data but why is there many si_data and less si_distr?
+2. how does this command thats a function belonging to estimate_r is invoked?  -  plot(r_parametric_si,legend = FALSE). This looks like a regular plot command.
 
 
+
+### Important Refernce:
+
+[Plot output of estim_r](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-3/topics/plot.estimate_R)
+[Discretizing serial interval](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/discr_si)
+[Make config](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/make_config)
+While estimating R with method 'uncertain_si', then n pairs of means and standard deviations are sampled. These means and standard deviations are sampled from  a truncated normal distribution. The means are derived from a truncated normal distribution with mean mean_si, standard deviation std_mean_si, minimum mean min_mean_si, maximum mean max_mean_si. The standard deviations are derieved from truncated normal distribution with mean - std_si, standard deviation - std_std_si, minimum mean min_std_si, maximum mean - max_std_si.
 ### Doubts
 1. Attack rate and incidence rate are one and the same?
 2. How is $R_t$ the ratio of number of new infections generated at time step t, $I_t$​, to total infectiousness of infected individual at time t?

@@ -2,7 +2,7 @@
 id: qr9otvt7um9wubucm04d6on
 title: WorkLog
 desc: 'A record of what work was done each day starting form 22 june 2023'
-updated: 1693837885084
+updated: 1694310911859
 created: 1687416396030
 ---
 |DATE|TASK THAT WAS HANDLED| DESCRIPTION OF THE WORK PERFORMED TODAY|
@@ -49,7 +49,13 @@ created: 1687416396030
 |31-8-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Wallinga_Teunis Paper,Thomson paper|
 |1-9-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]|Thomson paper|
 |2,3-9-23|Weekend||
-|4-9-23|[[More methods to get growth rate\|meet.2023.08.09#next-step]]| Preparing for the meeting and planning for the next works, Setting-up R and Rstudio|
-|
+|4-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]| Preparing for the meeting and planning for the next works, Setting-up R and Rstudio, Started with EpiEstim|
+|5-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]| Finishing EpiEstim reimplementing the given demo|
+|6-9-23|Mixture of tasks|Half day working for centogene, Half day reading more about MCMC|
+|7-9-23|Mixture of tasks|3/4 day working for centogene, 1/4 day reading Thomson paper again to clarify few doubts|
+|8-9-23|Mixture of tasks| 5.5 hrs at hospital, 2 hrs Centogene, Revisiting EpiEstim reimplementation to be sure I understood everything|
+|9-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]|Trying out the commands of the $R_0$ package|
+|10-9-23|Extra references|Few concepts needed more explanations, so read few more papers.|
+
 
 
