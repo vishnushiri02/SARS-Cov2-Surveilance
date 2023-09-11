@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1693802318736
+updated: 1694322785221
 created: 1684497049640
 ---
 
@@ -44,6 +44,7 @@ The effective reproduction number is also known as instantaneous reproductive nu
 - Represents the rate at which number of new infections arises.It can be either positive or negative. It is dependent on the reproduction number and timescale between infections $r = (R_0-1)/Ƭ$. If R<sub>0</sub> is greater than 1 then there is an exponential growth rate. When R<sub>0</sub> < 1 the infection cannot be established in the population and dies out.
   [[Relationship between Generation time/ Serial interval, epidemic growth and Reproduction number|Growth_Rate_Estimation.SARS_Cov2_notes#relationship-between-generation-time-serial-interval-epidemic-growth-and-reproduction-number]]
 - The instantaneous epidemic growth rate, **r<sub>t</sub>**, defined as the rate of change of the log‐transformed case incidence, has been proposed as a more informative and understandable measure of transmission dynamics. [5]
+- Growth rate is esstentially the rate of change of incidence.
 
 ## **Seropositives:**
 
@@ -304,8 +305,7 @@ In probability and statistics, the truncated normal distribution is the probabil
 ## **Moment Generating function:**
 In Statistics moments denote the characteristics of the distribution - the first order moment is the mean of the distribution, second order moment is the variance, third and fourth order moments are the skewness and kurtosis of the distribution respectively.
 A moment generating function is used to derieve the moment of the distribution. The probability distribution can be determined by its moment generating function.
-A Moment generating function of a random variable X is a function $M_X(s)$ and is defined as $M_X(s)=E[e^{sX}]$. Not all Random variables have moment generating function.If Expected value for X $E[exp(tX)]$ exists and is finite for all real numbers t belonging to a close interval $[-h,h]\subseteq 
-R$ with $h\ge0$, then we say X possesses a moment generating function $M_X(t)=E[exp(tX)]$
+A Moment generating function of a random variable X is a function $M_X(s)$ and is defined as $M_X(s)=E[e^{sX}]$. Not all Random variables have moment generating function.If Expected value for X $E[exp(tX)]$ exists and is finite for all real numbers t belonging to a close interval $[-h,h]\subseteq R$ with $h\ge0$, then we say X possesses a moment generating function $M_X(t)=E[exp(tX)]$
 
 ## **R-squared:**
 R-squared is a statistical measure that indicates how much of the variation of a dependent variable is explained by an independent variable in a regression model. Whereas correlation explains the strength of the relationship between an independent and a dependent variable, R-squared explains the extent to which the variance of one variable explains the variance of the second variable. $R^2$ is easy to intepret and easy to calculate too.
@@ -313,7 +313,7 @@ R-squared is a statistical measure that indicates how much of the variation of a
 ## **Exponential Function and e (Euler's number):**
 
 - The Euler's number is used in an exponentially growing function. 
-- e is used to describe the 100% continual growth for a end of a period. If the Growth for a time interval follows a trend $(1+r)$ where r is the rate. If this calculation is done for a subdivided time intervals the this would become as $(1+\frac{r}{n})^n$, this would result in a irrational number greater than 2 and less than 3. This generslised with the Euler's number . - If  To find the growth for x=2 periods then we use $e^x$.
+- e is used to describe the 100% continual growth for a end of a period. Consider the Growth for 1 time interval follows a trend $(1+r)$ where r is the rate and the number 1 is the already existing amount(100%). If this calculation is done for a subdivided time intervals (.5+.5) the this would become as $(1+\frac{r}{2})^2$, this would result in a irrational number greater than 2 and less than 3. This generslised with the Euler's number . - If  To find the growth for x=2 periods then we use $e^x$.
 - 100 changes of 1 percent rate also gives e:- $(1+.01)^{100}=2.7048$ So we can say $growth=(e^{rate})^{time}$
 - $(1+.01)^{100}=e\\(1+.01)^{50}=(1+.01)^{\frac{100}{2}}=e^{\frac{1}{2}}$
 - e can match a stair case growth can be modelled with e into a smoother curve.[14]
@@ -327,7 +327,14 @@ The period from the time of infection to the time of becoming infectious is call
 The average number of contacts adequate for disease transmission by an individual per unit time. It can vary by time and it is not a constant qunatity.
 
 ## **Expectation maximization algorithm:**
-This algorithm is used to find the maximum likelihood parameters of a statistical model. These model aparat from the unknown parameters also include known data observations. It is an itreative method EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step.
+This algorithm is used to find the maximum likelihood parameters of a statistical model. These model apart from the unknown parameters also include known data observations. It is an itreative method EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step.
+
+## Log transform
+A log transform is did when the data distribution is very skewed. Transforming suck data by log would make the distribution clode to normal. [Log transformation](https://youtu.be/LCDiQxB5S84)
+
+## Eurler lotka equation:
+1. The Lotka-Euler equation is a mathematical expression used to study pop- ulation dynamics and growth, particularly in the context of demography and ecology. 
+2. This equation is predominantly employed in the study of stable age populations, where age-specific birth and death rates remain constant over time.
 
 [1]: <https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module3-Frequency-Association/PH717-Module3-Frequency-Association4.html#:~:text=Cumulative%20Incidence%20Versus%20Incidence%20Rate,-There%20are%20two&text=Cumulative%20incidence%20is%20the%20proportion,%22%20(person%2Dtime)>
 

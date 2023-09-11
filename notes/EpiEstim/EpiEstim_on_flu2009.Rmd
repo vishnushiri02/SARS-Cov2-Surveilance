@@ -1,0 +1,225 @@
+---
+title: "Epi_Estim_on_flu_2009"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+ *Run* - *Cmd+Shift+Enter*. 
+ 
+ *The dataset contains:*
+
+1. The *daily incidence* of onset of acute respiratory illness (ARI, defined as at least two symptoms among fever, cough, sore throat, and runny nose) amongst children in a school in Pennsylvania during the 2009 H1N1 influenza pandemic (see Cauchemez et al., PNAS, 2011),
+
+2.The discrete *daily distribution of the serial interval* (time interval between symptoms onset in a case and in their infector) for influenza, assuming a shifted Gamma distribution with mean 2.6 days, standard deviation 1.5 days and shift 1 day (as in Ferguson et al., Nature, 2005).
+
+3.*Interval-censored serial interval data* from the 2009 outbreak of H1N1 influenza in San Antonio, Texas, USA (from Morgan et al., EID 2010).
+ 
+*Loading the input rda file* which has data regarding incidence, serial interval and serial interval distribution.
+```{r}
+library(EpiEstim)
+library(ggplot2)
+load(file='Flu2009.rda')
+
+```
+*Data viewing*
+```{r}
+##incidence
+Flu2009$incidence
+##Serial interval distribution
+Flu2009$si_distr
+## serial interval data
+## EL/ER show the lower/upper bound of the symptoms onset date in the infector
+## SL/SR show the same for the secondary case
+## type has entries 0 corresponding to doubly interval-censored data
+Flu2009$si_data
+```
+
+*Plotting daily incidence data against dates using R package called the incidence.* 
+This package provides functions and classes to compute, handle and visualise incidence from dated events for a defined time interval. Dates can be provided in various standard formats. The class 'incidence' is used to store computed incidence and can be easily manipulated, subsetted, and plotted. In addition, log-linear models can be fitted to 'incidence' objects using 'fit'. as.data.frame(object obtained from as.incidence or incidence function)
+```{r}
+library(incidence)
+plot(as.incidence(Flu2009$incidence$I, dates = Flu2009$incidence$dates))
+```
+## Estimating R with parametric serial interval distribution:
+
+*Using estimate_R on the incidence data to estimate the reproduction number R*. The time windows over which R is estimated and the serial interval distribution is specified to this function.the default behavior is to estimate R over weekly sliding windows. This can be changed through the config\$t_start and config$t_end arguments (see below, “Changing the time windows for estimation”).
+method parametric_si enables just specifiying mean and standard deviation. When using the parametric_si an offset gamma distribution is used for the serial interval.
+```{r}
+r_parametric_si<-estimate_R(Flu2009$incidence,method="parametric_si",config = make_config(list(mean_si=2.6,std_si=1.5)))
+```
+```{r}
+r_parametric_si
+```
+The function estimate_R results in Reproductive number for each sliding window the mean,std,quantiles of R. Apart from that it also gives the daily si_distribution, Incidence counts on each day and differentiate local and imported incidence. I assume the first index case is by default assumed as imported case. The results are plotted in different graphs - one for R, one for SI_distribution and one more for Incidence(Epidemic curve)
+```{r}
+plot(r_parametric_si,legend = FALSE)
+```
+## Estimating R with non-parametric serial interval distribution:
+
+This is done when the complete distribution of serial interval is known.
+
+```{r}
+r_non_parametric_si <-estimate_R(Flu2009$incidence,method = "non_parametric_si", config = make_config(list(si_distr=Flu2009$si_distr)))
+```
+*Visualization of the estimation*
+```{r}
+plot(r_non_parametric_si,"all")
+```
+## Estimating R accounting for uncertainity of serial interval distribution:
+During the early time periods in the outbreak serial interval distribution is poorly documented. In such cases estimate_R allows inclusion of n serial distributions - n pairs of mean and standard deviation.
+```{r}
+config <- make_config(list(mean_si = 2.6, std_mean_si = 1,
+                           min_mean_si = 1, max_mean_si = 4.2,
+                           std_si = 1.5, std_std_si = 0.5,
+                           min_std_si = 0.5, max_std_si = 2.5))
+r_uncertain_si<- estimate_R(Flu2009$incidence, method = "uncertain_si", config = config)
+plot(r_uncertain_si)
+```
+ The third plot shows all the Serial interval distributions considered.
+ 
+## Estimating R and the serial interval using data on pairs infector/infected
+ Serial interval is estimated from the interval censored data using MCMC. The reproduction number is then estimated using the posterior distribution of the SI, hence accounting for the uncertainty associated with this estimate. As the Epidemic progresses newly accounted data can be incorporated in this method while it is not possible if we use the parametric_si method. Burnin paramenter is used to discard the early values which might not be in the desired distribution.The MCMC is run for a total number of iterations of mcmc_control$burnin + n1*mcmc_control\$thin. but the output is only recorded after the burnin, and only 1 in every mcmc_control\$thin iterations are considered and n1 is the size of samples from serial interval distribution, so that the posterior sample size is n1. For each of the n1 sample of posterior serial distribution n2 samples of  posterior distribution of R is obtained for each window hence there is a sample size of n1Xn2 for each window. I think the default value of thin is 10 - saying it based on the number of iterations
+```{r}
+MCMC_seed <- 1
+overall_seed <- 2
+mcmc_control <- make_mcmc_control(seed = MCMC_seed, 
+                                  burnin = 1000,thin)
+dist <- "G" # fitting a Gamma dsitribution for the SI
+config <- make_config(list(si_parametric_distr = dist,
+                           mcmc_control = mcmc_control,
+                           seed = overall_seed, 
+                           n1 = 50, 
+                           n2 = 50))
+res_si_from_data <- estimate_R(Flu2009$incidence,
+                               method = "si_from_data",
+                               si_data = Flu2009$si_data,
+                               config = config)
+
+plot(res_si_from_data, legend = FALSE)
+```
+Saving the estimates of serial intreval first and then plugging it for estimating R.
+```{r}
+n_mcmc_samples <- config$n1*mcmc_control$thin #config$n1 - 500, mcmc_control$thin - 10
+SI_fit <- coarseDataTools::dic.fit.mcmc(dat = Flu2009$si_data,
+                  dist = dist,
+                  init.pars = init_mcmc_params(Flu2009$si_data, dist),
+                  burnin = mcmc_control$burnin,
+                  n.samples = n_mcmc_samples,
+                  seed = mcmc_control$seed) #the function fits the distribution to the input data using MCMC
+```
+```{r}
+SI_fit
+```
+coarse2estim Transforms outputs of coarseDataTools::dic.fit.mcmc to right format for input into estimate_R
+```{r}
+si_sample <- coarse2estim(SI_fit, thin = mcmc_control$thin)$si_sample
+res_si_from_sample <- estimate_R(Flu2009$incidence,
+                                method = "si_from_sample",
+                                si_sample = si_sample,
+                                config = make_config(list(n2 = 50, 
+                                seed = overall_seed)))
+```
+
+## Changing the time window of estimation
+Changing the time window through config$t_start and config$t_end
+First one would look similar to the previous parametric_si results because it is weekly
+
+
+```{r}
+T <- nrow(Flu2009$incidence)
+##32
+t_start <- seq(2, T-6) # starting at 2 as conditional on the past observations
+##2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+t_end <- t_start + 6 # adding 6 to get 7-day windows as bounds included in window
+##8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+res_weekly <- estimate_R(Flu2009$incidence, 
+                         method="parametric_si",
+                         config = make_config(list(
+                           t_start = t_start,
+                           t_end = t_end,
+                           mean_si = 2.6, 
+                           std_si = 1.5))
+)
+plot(res_weekly, "all") 
+```
+*Bi weekly*
+```{r}
+t_start <- seq(2, T-13) # starting at 2 as conditional on the past observations
+## 2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19
+t_end <- t_start + 13 
+##15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+res_biweekly <- estimate_R(Flu2009$incidence, 
+                           method="parametric_si",
+                           config = make_config(list(
+                             t_start = t_start,
+                             t_end = t_end,
+                             mean_si = 2.6, 
+                             std_si = 1.5))
+)
+plot(res_biweekly, "all") 
+```
+Estimating R on intervals of interest
+```{r}
+t_start <- c(2, 18, 25) # starting at 2 as conditional on the past observations
+t_end <- c(17, 24, 32)
+res_before_during_after_closure <- estimate_R(Flu2009$incidence, 
+                                              method="parametric_si",
+                                              config = make_config(list(
+                                                t_start = t_start,
+                                                t_end = t_end,
+                                                mean_si = 2.6, 
+                                                std_si = 1.5))
+)
+plot(res_before_during_after_closure,"R") + geom_hline(aes(yintercept=1),color="red", lty= 2)
+```
+## Different way to specify incidence
+
+Incidence can just be the counts of the cases and not including the dates. This will just have impact on x axis 
+```{r}
+
+config <- make_config(list(mean_si = 2.6, std_si = 1.5))
+res_incid_vector <- estimate_R(Flu2009$incidence$I, 
+                               method="parametric_si",
+                               config = config)
+plot(res_incid_vector,"all")
+```
+## Estimating R just by giving the dates for each case rather than the count on each dates
+
+The following command manipulates the dates data set - if on a particular date there are 5 cases, then this date is repeated 5 times. rep(i,Flu2009\$incidence\$I[i]) => i is the iteration number, Flu2009$incidence$I[i] denotes the ith data in the \$I of incidence. i is then repeated Flu2009$incidence$I[i] times. Now the elements of the resulting vector is used to navigate the Flu2009$incidence$dates and repeat the dates according to the number of cases reported on that day. lapply applies the function over a list or vector. Here rep function is applied. What happens here is, For 32 dates there are in total 129 cases. So 
+```{r}
+T <- nrow(Flu2009$incidence)
+dates_onset <- Flu2009$incidence$dates[unlist(lapply(seq_len(nrow(Flu2009$incidence)), function(i) 
+  rep(i, Flu2009$incidence$I[i])))]
+last_date <- Flu2009$incidence$date[T]
+res_incid_class <- estimate_R(incidence(dates_onset, last_date = last_date), 
+                              method="parametric_si",
+                              config = config)
+plot(res_incid_class,"all")
+```
+## specifying imported cases
+
+Including the information regarding local or importation of cases.
+```{r}
+location <- sample(c("local","imported"), length(dates_onset), replace=TRUE) #Randomply assigning each cases on each day as locaal or imported.
+location[1]<- "imported" #Forcing the first case to be imported
+incid<-incidence(dates_onset,groups = location)
+plot(incid)
+```
+```{r}
+res_with_imports <- estimate_R(incid,method="parametric_si", config = make_config(list(
+                   mean_si = 2.6, std_si = 1.5)))
+plot(res_with_imports, add_imported_cases=TRUE) 
+```
+add_imported_cases:
+A boolean to specify whether, on the incidence time series plot, to add the incidence of imported cases.
+
+## Wallinga_teunis estimation
+```{r}
+r_wt<-wallinga_teunis(Flu2009$incidence, method = "parametric_si",config = list(t_start = seq(2, 26), t_end = seq(8, 32),mean_si = 4.37, std_si = 1.90,
+n_sim = 10000))
+plot(r_wt,"all")
+```
+

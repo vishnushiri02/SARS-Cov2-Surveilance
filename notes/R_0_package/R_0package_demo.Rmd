@@ -1,0 +1,139 @@
+---
+title: "R_0Package-demonstration"
+output: html_document
+date: "2023-09-09"
+---
+
+The R_0 package provides the freedom of using several documented methods to estimate either basic reproduction number or effective reproduction number from the incident data. First thing first loading the R0 package
+
+```{r}
+install.packages("R0")
+library(R0)
+```
+
+## Viewing the data
+
+```{r}
+#data() - This lists the available data sets. I am choosing the Germany.1918 data set.
+ed<-data("Germany.1918") #Loads the data
+Germany.1918
+```
+
+The Germany.1918 is incidence data that gives the number of cases on each day(specified by date). Key is the date and value is the number cases. This is called a name vector in r. Accessing with key as the following first command it will produce both key and value. second and thrid commands are way to access just the numbers. 4th and 5th command can be used to just extract numbers and name from the object.
+
+```{r}
+Germany.1918["1918-09-29"]
+unname(Germany.1918["1918-09-29"])
+Germany.1918[["1918-09-29"]]
+unname(Germany.1918)
+names(Germany.1918)
+```
+
+## check.incid
+
+This function is used to generate an object that has the data in a format that is compatible with the estimation function.
+
+```{r}
+incidence<-unname(Germany.1918)
+dates<-names(Germany.1918)
+input_incidence<-check.incid(incidence,t=dates)
+input_incidence
+```
+
+Experimenting check.incid by just giving the initial date and time step.
+
+```{r}
+check.incid(incidence,date.first.obs ="1918-09-29",time.step = 1 )
+```
+
+No matter if the date vectors are given or no matter if the start data and time step value is given, check.incid function generates date vector.
+
+## Finding best fitting GT distribution
+
+This function is used to fit a Generation time distribution for two types of input. one is 2 vectors of dates denoting the onset of symptoms in the infector and infectee pair. One more is vector of values that represents the time lag between symptoms onset for pairs of infector/infectee, for a dataset of complete traced cases. Each value accounts for a pair of infector/infectee. This serial interval is often substitued for the generation time distribution, as it is easier to observe. Now the second type of data is being used.
+
+```{r}
+data("H1N1.serial.interval")
+est.GT(serial.interval =H1N1.serial.interval, request.plot = TRUE)
+```
+
+## Estimating basic reproduction number using the attack rate of an epidemic
+```{r}
+est.R0.AR(AR=0.30)
+est.R0.AR(pop.size = 1732, incid = 519) # the incidence is the 30% of the population size
+```
+
+## Estimating R from exponential growth rate
+
+when serial interval or generation time distribution is not given, the function generation.time is used get a discritized generation time distribution with the specified characteristics.
+
+```{r}
+data("Germany.1918")
+mGT<-generation.time("gamma",c(3,1.5))
+res<-est.R0.EG(Germany.1918,mGT,begin = 1, end=27)
+res
+```
+
+
+
+
+## Estimating the reproduction number by maximum likelihood.
+```{r}
+data("Germany.1918")
+GT<-generation.time("gamma",c(2.45, 1.38))
+est.R0.ML(Germany.1918,GT,begin=1,end=27,range = c(0.01,50))
+```
+
+## Estimating the reproduction number using Bayesian approach
+
+```{r}
+GT<-generation.time("gamma",c(2.45, 1.38))
+r_sb<-est.R0.SB(Germany.1918,GT)
+plot(r_sb)
+#plotfit(r_sb)
+```
+
+## Estimating time dependent Reproductive number.
+```{r}
+mGT<-generation.time("gamma",c(3,1.5))
+TD<- est.R0.TD(Germany.1918,mGT,begin = 1, end = 126,nsim = 100)
+plot(TD)
+plot(smooth.Rt(TD,7))
+```
+
+## Estimation using several methods
+
+For the same incidence data, several methods can be employed and Reproduction number can be calculated. Necessary arguments for the chosen method has to be given.
+```{r}
+estR0<-estimate.R(Germany.1918,mGT,begin = 1, end = 27, methods = c("EG","ML","TD","AR","SB"),pop.size = 100000, nsim=100)
+estR0
+```
+
+```{r}
+library(R0)
+load("/Users/vishnushirishyamsaisundar/Documents/Master-Thesis/Growth_rate_estimation/notes/EpiEstim/Flu2009.rda")
+#Flu2009
+epidemic<-Flu2009$incidence$I
+names(epidemic)<-Flu2009$incidence$dates
+
+epidemic
+```
+
+
+```{r}
+pri_onset<-Flu2009$si_data$ER
+seco_onset<-Flu2009$si_data$SR
+fgt<-est.GT(infector.onset.dates = pri_onset, infectee.onset.dates = seco_onset)
+egt<-generation.time("weibull",c(4.37,1.90))
+
+```
+
+
+```{r}
+r_td<-est.R0.TD(epidemic,egt,begin="2009-04-27",end="2009-05-28",nsim=10000)
+plot(r_td)
+
+```
+
+
+
