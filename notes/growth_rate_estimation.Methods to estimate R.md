@@ -1,8 +1,8 @@
 ---
 id: urvehi4ygxtjn16au66boqz
-title: Extra resources
+title: Methods and R package for Reproduction number estimation
 desc: 'This note will consolidate ideas from other papers. '
-updated: 1694182289323
+updated: 1694347993090
 created: 1691675878724
 traitIds:
   - meetingNote
@@ -123,7 +123,7 @@ The serial interval distribution that is fitten to the events of notable infecti
 + **Attack Rate:**
   1. It is the percentage of population eventually infected. This is used in the **_SIR model_** and it is linked to the basic reproduction number. 
 $$$\\
-R_0=-\frac{log(\frac{1-AR}{s_0})}{AR-(1-S_0)}
+R_0=-\frac{ln(\frac{1-AR}{s_0})}{AR-(1-S_0)}
 $$$
 $S_0$ initial percentage of suceptible population.
  **Assumptions:**
@@ -261,7 +261,7 @@ The effective reproduction number for case j is the sum over all cases it can ca
 ## **Improved inference of time-varying reproduction numbers during infectious disease outbreaks - Thomson:**
 
 ### Motivation:
-Extension of the statistical framework of [[Anne Cori et al.,|growth_rate_estimation.ExtraResources#a-new-framework-and-software-to-estimate-time-varying-reproduction-numbers-during-epidemics---anne-cori]] to estimate $R_t$. The serial interval is derieved from the known pair of primary and secondary cases. The uncertainity in the serial interval is also fully accounted. The method also allows incorporation of imported cases. The methods are implemented in EpiEstim2.2
+Extension of the statistical framework of [[Anne Cori et al.,|growth_rate_estimation.Methods to estimate R#a-new-framework-and-software-to-estimate-time-varying-reproduction-numbers-during-epidemics---anne-cori]] to estimate $R_t$. The serial interval is derieved from the known pair of primary and secondary cases. The uncertainity in the serial interval is also fully accounted. The method also allows incorporation of imported cases. The methods are implemented in EpiEstim2.2
 
 ### Methods:
 
@@ -276,7 +276,7 @@ jointly from incidence data and from posterior distribution of serial interval t
 **Estimation of Reproduction number:**
 
 1. The total number of incident cases at timestep t given as $I_t$ is the sum of imported and local cases. $I_t=I_t^{local}+I_t^{imported}$. It is assumed that the local and imported cases can be distinguished by epidemiological investigations. So at each step $I_t^{local}, I_t^{imported}$ are observed. 
-2. Following [[Anne Cori et al.,|growth_rate_estimation.ExtraResources#a-new-framework-and-software-to-estimate-time-varying-reproduction-numbers-during-epidemics---anne-cori]] $R_t$ is defined as ratio of number of new locally infected cases to the total infection potential across all the infected individual at time t. The total infectious potential is calculated as:
+2. Following [[Anne Cori et al.,|growth_rate_estimation.Methods to estimate R#a-new-framework-and-software-to-estimate-time-varying-reproduction-numbers-during-epidemics---anne-cori]] $R_t$ is defined as ratio of number of new locally infected cases to the total infection potential across all the infected individual at time t. The total infectious potential is calculated as:
   $$$\\
   \wedge_t(w_s)=\sum_{s=1}^t(I_{t-s}^{Local}+I_{t-s}^{imported})w_s=\sum_{s=1}^tI_{t-s}w_s$$$
 3. The Equations are more similar to the equations in the Cori paper section but there are sampled serial interval distributions which are included to get the posterior probability of reproduction number
