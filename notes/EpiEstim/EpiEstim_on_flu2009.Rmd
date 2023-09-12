@@ -194,6 +194,7 @@ T <- nrow(Flu2009$incidence)
 dates_onset <- Flu2009$incidence$dates[unlist(lapply(seq_len(nrow(Flu2009$incidence)), function(i) 
   rep(i, Flu2009$incidence$I[i])))]
 last_date <- Flu2009$incidence$date[T]
+incidence(dates_onset, last_date = last_date)
 res_incid_class <- estimate_R(incidence(dates_onset, last_date = last_date), 
                               method="parametric_si",
                               config = config)

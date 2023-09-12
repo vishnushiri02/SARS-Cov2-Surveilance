@@ -2,7 +2,7 @@
 id: qr9otvt7um9wubucm04d6on
 title: WorkLog
 desc: 'A record of what work was done each day starting form 22 june 2023'
-updated: 1694310911859
+updated: 1694495763631
 created: 1687416396030
 ---
 |DATE|TASK THAT WAS HANDLED| DESCRIPTION OF THE WORK PERFORMED TODAY|
@@ -55,7 +55,9 @@ created: 1687416396030
 |7-9-23|Mixture of tasks|3/4 day working for centogene, 1/4 day reading Thomson paper again to clarify few doubts|
 |8-9-23|Mixture of tasks| 5.5 hrs at hospital, 2 hrs Centogene, Revisiting EpiEstim reimplementation to be sure I understood everything|
 |9-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]|Trying out the commands of the $R_0$ package|
-|10-9-23|Extra references|Few concepts needed more explanations, so read few more papers.|
+|10-9-23|Sunday|-|
+|11-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]|1. Preparing for the meeting - git repository and pages updation 2. Hospital visit 3.5 hrs 3. Looked into the manuals of both the packages one more time (concentrting on the confidence interval).
+|12-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]| Reading Wallinga Liptch paper, moment generating function.
 
 
 

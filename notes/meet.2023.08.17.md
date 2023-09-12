@@ -2,7 +2,7 @@
 id: r5j2mun2um7dmxyv9u6zd29
 title: 'The extra resources'
 desc: ''
-updated: 1693834569387
+updated: 1694518540459
 created: 1692092505210
 traitIds:
   - meetingNote
@@ -29,7 +29,5 @@ Implementing the model data provided by each R package - EpiEstim and R_0 packag
 
 <!-- You can add any follow up items here. If they require more detail, you can use `Create Task Note` to create each follow up item as a separate note. -->
 
-- [] Try running the R package on data being provided
-- [] Try Gerstung paper in a docker environment
-- [ ]
-- [ ]
+- [x] Try running the R package on data being provided
+

@@ -2,7 +2,7 @@
 id: wvfgibsb8eq3x4x73uo4o0m
 title: 'Implementation of the R packages'
 desc: 'The task discussed at the end of the last meeting is to implement the R_0 and Epiestim R packages on the provided demo data.'
-updated: 1694309086862
+updated: 1694518815142
 created: 1693834645993
 traitIds:
   - meetingNote
@@ -23,6 +23,8 @@ _Edit the [[templates.meet]] note to change this template generated for Dendron 
 
 <!-- Any doubts to be cleared -->
 
+1. [[Doubts EpiEstim|growth_rate_estimation.Methods to estimate R.R_packages#doubts-epiestim]]
+2. [[Doubts|growth_rate_estimation.Methods to estimate R#doubts]]
 
 
 

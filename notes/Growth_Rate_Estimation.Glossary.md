@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1694322785221
+updated: 1694500388517
 created: 1684497049640
 ---
 
@@ -329,8 +329,22 @@ The average number of contacts adequate for disease transmission by an individua
 ## **Expectation maximization algorithm:**
 This algorithm is used to find the maximum likelihood parameters of a statistical model. These model apart from the unknown parameters also include known data observations. It is an itreative method EM iteration alternates between performing an expectation (E) step, which creates a function for the expectation of the log-likelihood evaluated using the current estimate for the parameters, and a maximization (M) step, which computes parameters maximizing the expected log-likelihood found on the E step.
 
+## **Confidence interval:**
+The confidence level is the overall capture rate if the method is used many times. The sample mean will vary from sample to sample, but the method estimate ± margin of error is used to get an interval based on each sample. CI% of these intervals capture the unknown population mean 𝜇. In other words, the actual mean will be located within the interval CI% of the time.
+
+Confidence, in statistics, is another way to describe probability. For example, if you construct a confidence interval with a 95% confidence level, you are confident that 95 out of 100 times the estimate will fall between the upper and lower values specified by the confidence interval.
+
+Your desired confidence level is usually one minus the alpha (α) value you used in your statistical test:
+
+Confidence level = 1 − a
+
+So if you use an alpha value of p < 0.05 for statistical significance, then your confidence level would be 1 − 0.05 = 0.95, or 95%.
+
 ## Log transform
 A log transform is did when the data distribution is very skewed. Transforming suck data by log would make the distribution clode to normal. [Log transformation](https://youtu.be/LCDiQxB5S84)
+
+## **Attack Rate:**
+The percentage of the population eventually infected. If the total population is 15743 and 7463 people were finally infected then the AR is $\frac{7463}{15743}*100=47%$. This can be calculated only when the epidemic is over and this can be calculated only in a closed population.
 
 ## Eurler lotka equation:
 1. The Lotka-Euler equation is a mathematical expression used to study pop- ulation dynamics and growth, particularly in the context of demography and ecology. 

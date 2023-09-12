@@ -2,7 +2,7 @@
 id: urvehi4ygxtjn16au66boqz
 title: Methods and R package for Reproduction number estimation
 desc: 'This note will consolidate ideas from other papers. '
-updated: 1694347993090
+updated: 1694518503310
 created: 1691675878724
 traitIds:
   - meetingNote
@@ -111,9 +111,9 @@ The serial interval distribution that is fitten to the events of notable infecti
 + It is more like a review of methods used in the package to estimate the initial growth rate and serial interval distributions.
 + **est.GT** is the fuction that is provided to estimate the serial interval distribution from a sample of observed time intervals between symptom onsets in primary cases and secondary cases by maximum likelihood.
 + Incidence data is provided either as a vector of dates of onset or vector of incidence counts along with initial date or time step.
-+ All the methods except the attack rate needs input of epidemic curve, generation time distribution.
++ All the methods except the [[attack Rate|Growth_Rate_Estimation.Glossary#attack-rate]] needs input of epidemic curve, generation time distribution.
 + **estimate.R** is used to estimate R with either of the methods described below.
-+ **sensitivity.analysis** computes the the R-squared statistic over a range of time periods chosen by the user. For the estimation of Reproduction number using Exponential growth rate methods and Maximum likelihood it is necessary to do the calculation on the exponential growth of the epidemic.
++ **sensitivity.analysis** computes the the [[R-squared|Growth_Rate_Estimation.Glossary#r-squared]] over a range of time periods chosen by the user. For the estimation of Reproduction number using Exponential growth rate methods and Maximum likelihood it is necessary to do the calculation on the exponential growth of the epidemic.
 + When a best fitting time period is chosen by using the **sensitivity.analysis** function the variability between the Reproductive number estimates given by exponential growth model and maximum likelihood model is minimal.
 + The estimation of R is also affected by the chosen generation time distribution.
 + All the methods tends to be less biased when the aggregation is less that the generation time. Very small aggregation step would result in gaps (0 observations).
@@ -126,6 +126,7 @@ $$$\\
 R_0=-\frac{ln(\frac{1-AR}{s_0})}{AR-(1-S_0)}
 $$$
 $S_0$ initial percentage of suceptible population.
+[[Confidence interval|Growth_Rate_Estimation.Glossary#confidence-interval]] of [[Attack Rate|Growth_Rate_Estimation.Glossary#attack-rate]] is calculated as $CI(AR)=AR\mp 1.96*sqrt(AR*(1-AR)/n)$
  **Assumptions:**
 Homogenous mixing, closed population and no intervention during outbreak
   2. This method can be used only at the end of the epidemic that had no intreventions set up.
@@ -134,6 +135,7 @@ Homogenous mixing, closed population and no intervention during outbreak
 + **Exponential Growth Rate:**
   1. Exponential growth rate at the early phase of an outbreak can be linked to initial reproduction ratio r.
   2. Reproduction number is computed as $R=\frac{1}{M(-r)}$ where M is the [[Moment Generating function|Growth_Rate_Estimation.Glossary#moment-generating-function]] of generation time distribution. This is summarized by Wallinga & Lipsitch.
+  3. [[Confidence interval|Growth_Rate_Estimation.Glossary#confidence-interval]] is computed from the $\frac{1}{M(-r)}$ formula with bounds on r from the poisson regression.
   + **Condition:** The chosen period should contain exponential growth of the epidemic. This exponential growth period can be chosed using the [[R-squared|Growth_Rate_Estimation.Glossary#r-squared]] statistic
   
 + **Maximum Likelihood estimation(ML):**
@@ -141,11 +143,13 @@ Homogenous mixing, closed population and no intervention during outbreak
   2. **Assumption:** Number of secondary cases caused by primary case is poisson distributed (since it deals with the count of cases per primary case), with expected value R (the average number of secondary cases caused by the primary case.).
   3. Given the observation of incident cases over consecutive time units, generation time distribution w, R is estimated by maximising the log-likelihood  $\\LL(R)=\sum_{t=1}^Tlog(\frac{e^{-\mu_t}\mu_t^{N_t}}{N_t!})\space where\space \mu_t=R\sum_{i=1}^tN_{t-i}w_i$
   4. Generation time shoudl be discretized.
+  5. [[Confidence interval|Growth_Rate_Estimation.Glossary#confidence-interval]] is achieved by profiling the likelihood.
   + **Condition:** The chosen period should contain exponential growth of the epidemic.This exponential growth period can be chosen using the [[R-squared|Growth_Rate_Estimation.Glossary#r-squared]] statistic.
 
 + **Sequential Bayesian Method(SB):**
   1. Sequential estimation of initial reproduction number.
   2. Relies on the approximation of SIR model where the incidence at time t+1 denoted as N(t+1) is poisson distributed with mean $N(t)e^{\gamma(R-1)}$ where $\frac{1}{\gamma}$ is the average duration of infectious period.
+  3. [[Confidence interval|Growth_Rate_Estimation.Glossary#confidence-interval]] is achieved by a cumulated sum of the R posterior distribution and corresponds to the 2.5% and 97.5% tresholds.
 
 > My interpretation of the mean: there is an average exponential growth in the incidence at a rate of $\gamma(R-1)$ where (R-1) is the average number of secondary cases and the $\gamma$ can be number of primary cases ($\\\frac{sum\space of\space infection\space time\space durations}{number\space of\space infections}=Average\space infectious\space period\\\frac{sum\space of\space infection\space time\space durations}{Average\space infectious\space period}=number\space of\space infections$) Multiplying it with N(t) would give the mean for until time step t.
 
@@ -166,6 +170,7 @@ Homogenous mixing, closed population and no intervention during outbreak
   5. The effective reproduction number which is the average number of secondary cases that a primary case can cause is given by the expectation number $R_j=\sum_i p_{ij}$ This is averaged as $R_t=\frac{1}{N_t}\sum_{t_j=t}R_j$ over all cases with same date of onset.
   6. Generation time should be discretized
   7. Imported cases can also be accounted
+  8. [[Confidence interval|Growth_Rate_Estimation.Glossary#confidence-interval]] is computed by multinomial simulations at each time step with expected value of R.
 
 ## Things to note
 
@@ -281,19 +286,6 @@ jointly from incidence data and from posterior distribution of serial interval t
   \wedge_t(w_s)=\sum_{s=1}^t(I_{t-s}^{Local}+I_{t-s}^{imported})w_s=\sum_{s=1}^tI_{t-s}w_s$$$
 3. The Equations are more similar to the equations in the Cori paper section but there are sampled serial interval distributions which are included to get the posterior probability of reproduction number
 
-## **Implementation of EpiEstim**
-### Doubts:
-1. What exactly is the si_distr and si_data present in the rda file? I assume it is observed data but why is there many si_data and less si_distr?
-2. how does this command thats a function belonging to estimate_r is invoked?  -  plot(r_parametric_si,legend = FALSE). This looks like a regular plot command.
 
-
-
-### Important Refernce:
-
-[Plot output of estim_r](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-3/topics/plot.estimate_R)
-[Discretizing serial interval](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/discr_si)
-[Make config](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/make_config)
-While estimating R with method 'uncertain_si', then n pairs of means and standard deviations are sampled. These means and standard deviations are sampled from  a truncated normal distribution. The means are derived from a truncated normal distribution with mean mean_si, standard deviation std_mean_si, minimum mean min_mean_si, maximum mean max_mean_si. The standard deviations are derieved from truncated normal distribution with mean - std_si, standard deviation - std_std_si, minimum mean min_std_si, maximum mean - max_std_si.
 ### Doubts
-1. Attack rate and incidence rate are one and the same?
-2. How is $R_t$ the ratio of number of new infections generated at time step t, $I_t$​, to total infectiousness of infected individual at time t?
+1. How is $R_t$ the ratio of number of new infections generated at time step t, $I_t$​, to total infectiousness of infected individual at time t? - Anna Cori paper
