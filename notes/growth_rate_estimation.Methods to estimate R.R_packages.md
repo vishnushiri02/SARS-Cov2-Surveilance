@@ -2,7 +2,7 @@
 id: ttnshslislmgscwlukibhh5
 title: R_packages
 desc: 'This note delas with the R packages that employs the method mentioned in the parent note'
-updated: 1694519017877
+updated: 1694570798318
 created: 1694342177084
 ---
 ## **EpiEstim package**
@@ -23,9 +23,9 @@ created: 1694342177084
 
 ### Important Reference:
 
-[Plot output of estim_r](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-3/topics/plot.estimate_R)
-[Discretizing serial interval](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/discr_si)
-[Make config](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/make_config)
+[Plot output of estim_r](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-3/topics/plot.estimate_R)<br>
+[Discretizing serial interval](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/discr_si)<br>
+[Make config](https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/make_config)<br>
 While estimating R with method 'uncertain_si', then n pairs of means and standard deviations are sampled. These means and standard deviations are sampled from  a truncated normal distribution. The means are derived from a truncated normal distribution with mean mean_si, standard deviation std_mean_si, minimum mean min_mean_si, maximum mean max_mean_si. The standard deviations are derieved from truncated normal distribution with mean - std_si, standard deviation - std_std_si, minimum mean min_std_si, maximum mean - max_std_si.
 
 ## **R_0 package**

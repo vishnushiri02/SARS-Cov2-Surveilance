@@ -109,6 +109,7 @@ estR0<-estimate.R(Germany.1918,mGT,begin = 1, end = 27, methods = c("EG","ML","T
 estR0
 ```
 
+## Using R0 package for EpiEstim data set
 ```{r}
 library(R0)
 load("/Users/vishnushirishyamsaisundar/Documents/Master-Thesis/Growth_rate_estimation/notes/EpiEstim/Flu2009.rda")
@@ -123,16 +124,19 @@ epidemic
 ```{r}
 pri_onset<-Flu2009$si_data$ER
 seco_onset<-Flu2009$si_data$SR
+Flu2009$si_distr
+
 fgt<-est.GT(infector.onset.dates = pri_onset, infectee.onset.dates = seco_onset)
-egt<-generation.time("weibull",c(4.37,1.90))
+fgt
+egt<-generation.time("weibull",c(4.37,1.90)) # the parameters and the type of the distribution is based on est.GT output
 
 ```
 
 
 ```{r}
 r_td<-est.R0.TD(epidemic,egt,begin="2009-04-27",end="2009-05-28",nsim=10000)
-plot(r_td)
-
+#plot(r_td)
+plot(smooth.Rt(r_td,7))
 ```
 
 

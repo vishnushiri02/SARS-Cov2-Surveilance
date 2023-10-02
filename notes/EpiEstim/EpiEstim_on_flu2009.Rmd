@@ -86,7 +86,7 @@ plot(r_uncertain_si)
 MCMC_seed <- 1
 overall_seed <- 2
 mcmc_control <- make_mcmc_control(seed = MCMC_seed, 
-                                  burnin = 1000,thin)
+                                  burnin = 1000)
 dist <- "G" # fitting a Gamma dsitribution for the SI
 config <- make_config(list(si_parametric_distr = dist,
                            mcmc_control = mcmc_control,
@@ -100,6 +100,10 @@ res_si_from_data <- estimate_R(Flu2009$incidence,
 
 plot(res_si_from_data, legend = FALSE)
 ```
+```{r}
+res_si_from_data
+```
+
 Saving the estimates of serial intreval first and then plugging it for estimating R.
 ```{r}
 n_mcmc_samples <- config$n1*mcmc_control$thin #config$n1 - 500, mcmc_control$thin - 10
@@ -116,6 +120,7 @@ SI_fit
 coarse2estim Transforms outputs of coarseDataTools::dic.fit.mcmc to right format for input into estimate_R
 ```{r}
 si_sample <- coarse2estim(SI_fit, thin = mcmc_control$thin)$si_sample
+#si_sample
 res_si_from_sample <- estimate_R(Flu2009$incidence,
                                 method = "si_from_sample",
                                 si_sample = si_sample,
@@ -218,9 +223,15 @@ add_imported_cases:
 A boolean to specify whether, on the incidence time series plot, to add the incidence of imported cases.
 
 ## Wallinga_teunis estimation
+By giving the distribution
 ```{r}
-r_wt<-wallinga_teunis(Flu2009$incidence, method = "parametric_si",config = list(t_start = seq(2, 26), t_end = seq(8, 32),mean_si = 4.37, std_si = 1.90,
-n_sim = 10000))
+
+r_wt<-wallinga_teunis(Flu2009$incidence, method = "non_parametric_si",config = list(t_start = seq(2, 26), t_end = seq(8, 32), 
+n_sim = 10000,si_distr=Flu2009$si_distr))
 plot(r_wt,"all")
+```
+
+```{r}
+r_wt
 ```
 
