@@ -2,7 +2,7 @@
 id: qr9otvt7um9wubucm04d6on
 title: WorkLog
 desc: 'A record of what work was done each day starting form 22 june 2023'
-updated: 1694495763631
+updated: 1695451977245
 created: 1687416396030
 ---
 |DATE|TASK THAT WAS HANDLED| DESCRIPTION OF THE WORK PERFORMED TODAY|
@@ -57,7 +57,15 @@ created: 1687416396030
 |9-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]|Trying out the commands of the $R_0$ package|
 |10-9-23|Sunday|-|
 |11-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]|1. Preparing for the meeting - git repository and pages updation 2. Hospital visit 3.5 hrs 3. Looked into the manuals of both the packages one more time (concentrting on the confidence interval).
-|12-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]| Reading Wallinga Liptch paper, moment generating function.
-
+|12-9-23|[[Trying out The R Packages\|meet.2023.08.17#tasks]]| Reading Wallinga Liptch paper, moment generating function, meeting.|
+|13-9-23|Not feeling well| -|
+|14-9-23|[[Tasks\|meet.2023.09.11#tasks]]| Trying to equate wallinga teunis method in both the packages, Checking for other R packages to estimate epidemiology features.reading into packages like surveilence,epiR,mem etc|
+|15-9-23|Work at Centogene||
+|16-9-23|[[Tasks\|meet.2023.09.11#tasks]]| spent 3 hours trying to understand surveillance package.|
+|17-9-23|Sunday||
+|18-9-23|Work at centogene| |
+|19-9-23|[[Tasks\|meet.2023.09.11#tasks]]| Explored GISAID and GISAIDR, tried to download the meta data and mutation data, the default download functon in the GISAIDR package only downloads meta data but not data regarding mutation, so working on changing the download function.|
+|20,21,22-9-23|Hospital readmission|-|
+|23-9-23|[[Tasks\|meet.2023.09.11#tasks]]| Downloading all the data from GISAID|
 
 

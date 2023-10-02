@@ -16,7 +16,7 @@ Dr. Daniela Börnigen
 
 ## Work done so far
 
-  - [x] Literature study to collect already existing studies [[Growth_Rate_Estimation]]
+  - [x] Literature study to collect already existing studies [[Growth_rate_Estimation]]
   - [x] Glossary with Epidemiological Terms [[Growth_Rate_Estimation.Glossary]]
   
 
