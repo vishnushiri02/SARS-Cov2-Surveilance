@@ -1,6 +1,6 @@
 ---
 id: yzhnqpppxy0sf7yapgxvbjw
-title: Growth_Rate_Estimation
+title: Growth_rate_Estimation
 desc: >-
   This note is the overall Reference document that is needed throughout this
   project

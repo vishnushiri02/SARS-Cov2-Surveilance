@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1694500388517
+updated: 1694869340437
 created: 1684497049640
 ---
 
@@ -119,7 +119,7 @@ Differential equation dependent on only a single independent variable. Read More
 ## **Splines:**
 
 In essence, splines are piecewise polynomials, joined at points called knots. The degree specifies the degree of the polynomials. A polynomial of degree 1 is just a line, so these would be linear splines. Cubic splines have polynomials of degree 3 and so on. The degrees of freedom (df) basically say how many parameters you have to estimate. They have a specific relationship with the number of knots and the degree, which depends on the type of spline.
-  >```Note : B splines are splines that have local control - when the control point/knot is moved there is no much differnce in the other parrt of the curve.```
+  >```Note : B splines are splines that have local control - when the control point/knot is moved there is no much differnce in the other part of the curve.```
 
 - For B-splines: $df=𝑘+degree$ if you specify the knots or $𝑘=df−degree$ if you specify the degrees of freedom and the degree.
 - For natural (restricted) cubic splines: $df=𝑘−1$ if you specify the knots or $𝑘=df+1$ if you specify the degrees of freedom.
@@ -350,6 +350,16 @@ The percentage of the population eventually infected. If the total population is
 1. The Lotka-Euler equation is a mathematical expression used to study pop- ulation dynamics and growth, particularly in the context of demography and ecology. 
 2. This equation is predominantly employed in the study of stable age populations, where age-specific birth and death rates remain constant over time.
 
+## CRAN Task view:
+CRAN task views aim to provide guidance which packages on the Comprehensive R Archive Network (CRAN) are relevant for tasks related to a certain topic. They give a brief overview of the included packages which can also be automatically installed using the ctv package. The views are intended to have a sharp focus so that it is sufficiently clear which packages should be included (or excluded) - and they are not meant to endorse the "best" packages for a given task [15].
+
+## Case Fatality ratio:
+The fraction of cases that die after contracting a disease. The relative case fatality ratio is the factor by which the case fatality ratio in one group is greater or less than other group in a second group.
+
+## R class system:
+
+- R has 3 class systems while other program has only one.
+- s3 is 
 [1]: <https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module3-Frequency-Association/PH717-Module3-Frequency-Association4.html#:~:text=Cumulative%20Incidence%20Versus%20Incidence%20Rate,-There%20are%20two&text=Cumulative%20incidence%20is%20the%20proportion,%22%20(person%2Dtime)>
 
 [2]: <Whittemore AS. Evaluating health risk models. Stat Med. 2010 Oct 15;29(23):2438-52. doi: 10.1002/sim.3991. PMID: 20623821; PMCID: PMC2990501>
@@ -370,3 +380,4 @@ The percentage of the population eventually infected. If the total population is
 [12]: <https://medium.com/swlh/probability-vs-likelihood-cdac534bf523>
 [13]: <https://s4be.cochrane.org/blog/2020/11/06/prevalence-vs-incidence-what-is-the-difference/#:~:text=Two%20types%20of%20incidence%20are,%27%20and%20%27incidence%20rate%27.>
 [14]:<https://betterexplained.com/articles/an-intuitive-guide-to-exponential-functions-e/#:~:text=e%20is%20the%20base%20rate,growing%20just%20a%20little%20bit.>
+[15]:<https://github.com/cran-task-views/ctv/>
