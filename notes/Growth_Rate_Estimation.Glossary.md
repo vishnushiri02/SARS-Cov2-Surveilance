@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1696842681643
+updated: 1696861447959
 created: 1684497049640
 ---
 
@@ -355,16 +355,30 @@ The percentage of the population eventually infected. If the total population is
 1. The Lotka-Euler equation is a mathematical expression used to study pop- ulation dynamics and growth, particularly in the context of demography and ecology. 
 2. This equation is predominantly employed in the study of stable age populations, where age-specific birth and death rates remain constant over time.
 
-## CRAN Task view:
+## **CRAN Task view:**
+
 CRAN task views aim to provide guidance which packages on the Comprehensive R Archive Network (CRAN) are relevant for tasks related to a certain topic. They give a brief overview of the included packages which can also be automatically installed using the ctv package. The views are intended to have a sharp focus so that it is sufficiently clear which packages should be included (or excluded) - and they are not meant to endorse the "best" packages for a given task [15].
 
-## Case Fatality ratio:
+## **Case Fatality ratio:**
+
 The fraction of cases that die after contracting a disease. The relative case fatality ratio is the factor by which the case fatality ratio in one group is greater or less than other group in a second group.
 
-## R class system:
+## R **class system:**
 
 - R has 3 class systems while other program has only one.
 - s3 is 
+
+
+## **ISO3 codes:**
+
+ISO 3166-1 alpha-3 codes are three-letter country codes defined in ISO 3166-1, part of the ISO 3166 standard published by the International Organization for Standardization, to represent countries, dependent territories, and special areas of geographical interest.
+
+## **Rolling Average:**
+
+A moving average means that it takes the past days of numbers, takes the average of those days, and plots it on the graph. For a 7-day moving average, it takes the last 7 days, adds them up, and divides it by 7. For a 14-day average, it will take the past 14 days. So, for example, we have data on COVID starting March 12. For the 7-day moving average, it needs 7 days of COVID cases: that is the reason it only starts on March 19. On the 19th, it added all the cases together between March 12 and March 19 and divided it by 7. It then plots that point. The next point, at March 20, uses March 13-20 for its average calculation. If you are thinking about it, you might realize that this indeed “moves” every day, which is why they call it a moving average.
+
+
+
 [1]: <https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module3-Frequency-Association/PH717-Module3-Frequency-Association4.html#:~:text=Cumulative%20Incidence%20Versus%20Incidence%20Rate,-There%20are%20two&text=Cumulative%20incidence%20is%20the%20proportion,%22%20(person%2Dtime)>
 
 [2]: <Whittemore AS. Evaluating health risk models. Stat Med. 2010 Oct 15;29(23):2438-52. doi: 10.1002/sim.3991. PMID: 20623821; PMCID: PMC2990501>
