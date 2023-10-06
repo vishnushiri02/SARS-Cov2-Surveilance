@@ -2,7 +2,7 @@
 id: yih7ic35lg47iem70bgvv28
 title: outbreakinfo
 desc: 'This note conatains information about the outbreak info R package'
-updated: 1696523987894
+updated: 1696587803631
 created: 1695452967027
 ---
 
@@ -33,3 +33,4 @@ created: 1695452967027
 ## Overall
 
 >> With functions getGlobalPrevalence(), getPrevalence(), daily prevalence and proportions of the lineages can be obtained. Proportion is obtained through $\frac{lineage\_count\_rolling}{total\_count\_rolling}$.getCumulativeBySubadmin() gives the cumulative prevalence which I think is calculated from the first instance of reporting of the lineage to the last instance of reporting for the lineage. Cumulative lineage proportions are calculated using the $\frac{cum\_lineage\_count}{cum\_total\_count}$
+>> All the functions that were tried are in outbreakinfo.Rmd in the Data_from_GISAID folder
