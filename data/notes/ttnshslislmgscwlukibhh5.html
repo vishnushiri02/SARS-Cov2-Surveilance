@@ -1,0 +1,76 @@
+<h1 id="r_packages">R_packages<a aria-hidden="true" class="anchor-heading icon-link" href="#r_packages"></a></h1>
+<h2 id="epiestim-package"><strong>EpiEstim package</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#epiestim-package"></a></h2>
+<p><a href="https://mrc-ide.github.io/EpiEstim/articles/short_demo.html#estimating-r-accounting-for-uncertainty-on-the-serial-interval-distribution">EpiEstim Demonstration</a></p>
+<h2 id="methods">Methods:<a aria-hidden="true" class="anchor-heading icon-link" href="#methods"></a></h2>
+<ol>
+<li><strong>Parametric_si</strong>: mean and sd of the si are given. The Estimation method uses an offset gamma distribution with provided parameters to estimate R.</li>
+<li><strong>Non parametric Serial Distribution</strong>: The serial distribution is entirely known. Using the function discr_si(number of data points, mean, standard deviation) a descritised serial distribution datapoint from a distibution with the desired mean and sd can be obtained</li>
+<li><strong>uncertain_si</strong> : While estimating R with method 'uncertain_si', n pairs of means and standard deviations are sampled. These means and standard deviations are sampled from  a <a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#truncated-normal-distribution">Truncated Normal Distribution</a>. The means are derived from a truncated normal distribution with mean mean_si, standard deviation std_mean_si, minimum mean min_mean_si, maximum mean max_mean_si. The standard deviations are derieved from <a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#truncated-normal-distribution">Truncated Normal Distribution</a> with mean - std_si, standard deviation - std_std_si, minimum mean min_std_si, maximum mean - max_std_si.</li>
+<li><strong>si_from_data</strong>: Serial interval distribution is estimated using MCMC from the interval censored data. New data can be included and the serial interval can be updated.</li>
+</ol>
+<h3 id="doubts-epiestim">Doubts EpiEstim:<a aria-hidden="true" class="anchor-heading icon-link" href="#doubts-epiestim"></a></h3>
+<ol>
+<li>how does this command thats a function belonging to estimate_r is invoked?  -  plot(r_parametric_si). This looks like a regular plot command.</li>
+</ol>
+<h3 id="important-reference">Important Reference:<a aria-hidden="true" class="anchor-heading icon-link" href="#important-reference"></a></h3>
+<p><a href="https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-3/topics/plot.estimate_R">Plot output of estim_r</a>
+<a href="https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/discr_si">Discretizing serial interval</a>
+<a href="https://www.rdocumentation.org/packages/EpiEstim/versions/2.2-4/topics/make_config">Make config</a>
+While estimating R with method 'uncertain_si', then n pairs of means and standard deviations are sampled. These means and standard deviations are sampled from  a truncated normal distribution. The means are derived from a truncated normal distribution with mean mean_si, standard deviation std_mean_si, minimum mean min_mean_si, maximum mean max_mean_si. The standard deviations are derieved from truncated normal distribution with mean - std_si, standard deviation - std_std_si, minimum mean min_std_si, maximum mean - max_std_si.</p>
+<h2 id="r_0-package"><strong>R_0 package</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#r_0-package"></a></h2>
+<p><a href="https://cran.r-project.org/web/packages/R0/R0.pdf">Manual</a></p>
+<h2 id="doubts_r0_package">Doubts_R0_package<a aria-hidden="true" class="anchor-heading icon-link" href="#doubts_r0_package"></a></h2>
+<h3 id="functions-commands-that-are-being-used-in-the-package">Functions/ commands that are being used in the package<a aria-hidden="true" class="anchor-heading icon-link" href="#functions-commands-that-are-being-used-in-the-package"></a></h3>
+<h4 id="checkincid"><strong>check.incid</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#checkincid"></a></h4>
+<p>This function is called internally by the estimation methods make the input incidence and dates data comatible to estimation methods.</p>
+<ol>
+<li>Takes in incidence object(vector/list) and vector of   dates or the start date and the size of the time step.</li>
+<li>Returns incidence and the dates in as double. </li>
+<li>Incidence data should not contain negative or missing values.</li>
+<li>Incidence data and time vector should have the same length.</li>
+</ol>
+<h4 id="estgt"><strong>est.GT</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#estgt"></a></h4>
+<ol>
+<li>Finding best fitting GT distribution for the given serial interval.</li>
+<li>Serial interval is either provided as time lag between infector infectee pair. Or as two vectors one describing the date of onset of symptom onset in infector and the other is the date of symptom onset in infectee.</li>
+<li>This function returns the name of the best fitting distribution along with the parameters like mean and sd.</li>
+<li>It also return mean and sd of the descritized GT along with I assume few data point in the discritized distribtuion.</li>
+</ol>
+<h4 id="estr0ar"><strong>est.R0.AR</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#estr0ar"></a></h4>
+<ol>
+<li>Estimates the Reproduction number based on the <a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#attack-rate">attack rate</a> alone (Initial proportion of the population considered susceptible has a default value of 1)</li>
+<li>Estimates is also done using population size and the incident cases - either given as a vector or a total count.</li>
+<li>If Population size is given the confidence intervals are computed.</li>
+</ol>
+<h4 id="estr0eg"><strong>est.R0.EG</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#estr0eg"></a></h4>
+<ol>
+<li>This function needs the epidemic curve data, generation time distribution, begin and end time of the computation. </li>
+<li>An argument reg.met which is in default poisson is used to fit the incidence rate data (epidemic curve) and estimate r.</li>
+</ol>
+<h4 id="estr0ml"><strong>est.R0.ML</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#estr0ml"></a></h4>
+<ol>
+<li>Needs the input of epidemic curve, Generation time distribution, range in which the maximum should be looked for. </li>
+<li>If the generation time distribution is not known agrument unknown.GT is set true. Nevertheless the mean and sd of the GT should still be given. This values will be used as a starting value for the optimization routine.</li>
+</ol>
+<h4 id="estr0sb"><strong>est.R0.SB</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#estr0sb"></a></h4>
+<ol>
+<li>Epidemic curve, generation time distribution are fed in to the model.</li>
+<li>Estimate of R at every sequential time step is the output.</li>
+</ol>
+<h4 id="estimation-of-time-dependent-reproduction-number"><strong>Estimation of time dependent reproduction number:</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#estimation-of-time-dependent-reproduction-number"></a></h4>
+<ol>
+<li>The incidence data is used to get the initial number of cases. Generation time interval is computed using generation.time. </li>
+<li>Agregating the initial data by a time unit is possible with method smoot.RT.</li>
+</ol>
+<p>Apart from these methods there are also commands and options to simulate an epidemic - generates an epidemic curve with specified distribution and reproduction number. <strong>sim.epid.indiv</strong>,<strong>sim.epid</strong></p>
+<h2 id="epiestim-vs-r_0-package">EpiEstim vs R_0 package<a aria-hidden="true" class="anchor-heading icon-link" href="#epiestim-vs-r_0-package"></a></h2>
+<ol>
+<li>EpiEstim - Only intstantaneous Reproduction number. While R_0 is for Basic Reproduction number and instantaneous reproduction number. But for maximum likelihood method only one value of R is estimated with the confidence interval.</li>
+<li>Epi_estim methods : differ only according to the inputs for the serial interval - parametric, non parametric, serial interval from the data. While R_0 packages differ on the method employed to find the Reproduction number.</li>
+<li>EpiEstim uses estimate_R with arguments t_start,t_end in the config to specify the start and end time of each window. While the begin and end arguments in the  est.R0.(EG/ML/SB/TD) is used to say the start and end time of the estimation. </li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/SARS-Cov2-Surveilance/notes/wvfgibsb8eq3x4x73uo4o0m">Implementation of the R packages</a></li>
+</ul>

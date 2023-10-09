@@ -1,0 +1,216 @@
+{
+  "roots": [
+    {
+      "key": "yzhnqpppxy0sf7yapgxvbjw",
+      "title": "Growth_rate_Estimation",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Literature",
+      "children": [
+        {
+          "key": "ikm1x970zyg0cc0u4ewttsk",
+          "title": "GerstungLab",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": []
+        },
+        {
+          "key": "rfr63bef0sa84zpwv9fw1w0",
+          "title": "Glossary",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": []
+        },
+        {
+          "key": "dm29gl6lytt8sj0b96z6pg8",
+          "title": "SARS_Cov2_notes",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": []
+        },
+        {
+          "key": "urvehi4ygxtjn16au66boqz",
+          "title": "Methods and R package for Reproduction number estimation",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": [
+            {
+              "key": "ttnshslislmgscwlukibhh5",
+              "title": "R_packages",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Literature",
+              "children": []
+            }
+          ]
+        },
+        {
+          "key": "v1jffnk3ktk5mbx8jpgx53v",
+          "title": "Wallinga_Lipsitch",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": []
+        }
+      ]
+    },
+    {
+      "key": "qr9otvt7um9wubucm04d6on",
+      "title": "WorkLog",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Literature",
+      "children": []
+    },
+    {
+      "key": "1p3762rhejdcytrms2q3uzf",
+      "title": "Meet",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Literature",
+      "children": [
+        {
+          "key": "0gd424bhza3q3e1pbwkmbep",
+          "title": "2023",
+          "icon": "plusOutlined",
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": [
+            {
+              "key": "be2u6bh32oelme82icrwio8",
+              "title": "05",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Literature",
+              "children": [
+                {
+                  "key": "rb0oo1wvx167hr3myndaf8c",
+                  "title": "Literature search",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Literature",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "o1cn5rn5c8os5eks3eu8ons",
+              "title": "08",
+              "icon": "plusOutlined",
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Literature",
+              "children": [
+                {
+                  "key": "nwkot08jbh3bx24z3zcf9sg",
+                  "title": "Implementation of gerstung lab paper",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Literature",
+                  "children": []
+                },
+                {
+                  "key": "r5j2mun2um7dmxyv9u6zd29",
+                  "title": "The extra resources",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Literature",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "68142q5w1v3i0wdo8rtynk8",
+              "title": "09",
+              "icon": "plusOutlined",
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Literature",
+              "children": [
+                {
+                  "key": "wvfgibsb8eq3x4x73uo4o0m",
+                  "title": "Implementation of the R packages",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Literature",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "7el5m7bmwl0usxvac72hp2z",
+      "title": "Templates",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Literature",
+      "children": [
+        {
+          "key": "05kicabkj8adz5svxozly29",
+          "title": "Checklist",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": []
+        },
+        {
+          "key": "7l9y3w5bhq9eca4nhuu147q",
+          "title": "Meeting Notes Template",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Literature",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "child2parent": {
+    "yzhnqpppxy0sf7yapgxvbjw": null,
+    "ikm1x970zyg0cc0u4ewttsk": "yzhnqpppxy0sf7yapgxvbjw",
+    "rfr63bef0sa84zpwv9fw1w0": "yzhnqpppxy0sf7yapgxvbjw",
+    "dm29gl6lytt8sj0b96z6pg8": "yzhnqpppxy0sf7yapgxvbjw",
+    "urvehi4ygxtjn16au66boqz": "yzhnqpppxy0sf7yapgxvbjw",
+    "ttnshslislmgscwlukibhh5": "urvehi4ygxtjn16au66boqz",
+    "v1jffnk3ktk5mbx8jpgx53v": "yzhnqpppxy0sf7yapgxvbjw",
+    "qr9otvt7um9wubucm04d6on": null,
+    "1p3762rhejdcytrms2q3uzf": null,
+    "0gd424bhza3q3e1pbwkmbep": "1p3762rhejdcytrms2q3uzf",
+    "be2u6bh32oelme82icrwio8": "0gd424bhza3q3e1pbwkmbep",
+    "rb0oo1wvx167hr3myndaf8c": "be2u6bh32oelme82icrwio8",
+    "o1cn5rn5c8os5eks3eu8ons": "0gd424bhza3q3e1pbwkmbep",
+    "nwkot08jbh3bx24z3zcf9sg": "o1cn5rn5c8os5eks3eu8ons",
+    "r5j2mun2um7dmxyv9u6zd29": "o1cn5rn5c8os5eks3eu8ons",
+    "68142q5w1v3i0wdo8rtynk8": "0gd424bhza3q3e1pbwkmbep",
+    "wvfgibsb8eq3x4x73uo4o0m": "68142q5w1v3i0wdo8rtynk8",
+    "7el5m7bmwl0usxvac72hp2z": null,
+    "05kicabkj8adz5svxozly29": "7el5m7bmwl0usxvac72hp2z",
+    "7l9y3w5bhq9eca4nhuu147q": "7el5m7bmwl0usxvac72hp2z"
+  },
+  "notesLabelById": {
+    "yzhnqpppxy0sf7yapgxvbjw": "Growth_rate_Estimation",
+    "ikm1x970zyg0cc0u4ewttsk": "GerstungLab",
+    "rfr63bef0sa84zpwv9fw1w0": "Glossary",
+    "dm29gl6lytt8sj0b96z6pg8": "SARS_Cov2_notes",
+    "urvehi4ygxtjn16au66boqz": "Methods and R package for Reproduction number estimation",
+    "ttnshslislmgscwlukibhh5": "R_packages",
+    "v1jffnk3ktk5mbx8jpgx53v": "Wallinga_Lipsitch",
+    "qr9otvt7um9wubucm04d6on": "WorkLog",
+    "1p3762rhejdcytrms2q3uzf": "Meet",
+    "0gd424bhza3q3e1pbwkmbep": "2023",
+    "be2u6bh32oelme82icrwio8": "05",
+    "rb0oo1wvx167hr3myndaf8c": "Literature search",
+    "o1cn5rn5c8os5eks3eu8ons": "08",
+    "nwkot08jbh3bx24z3zcf9sg": "Implementation of gerstung lab paper",
+    "r5j2mun2um7dmxyv9u6zd29": "The extra resources",
+    "68142q5w1v3i0wdo8rtynk8": "09",
+    "wvfgibsb8eq3x4x73uo4o0m": "Implementation of the R packages",
+    "7el5m7bmwl0usxvac72hp2z": "Templates",
+    "05kicabkj8adz5svxozly29": "Checklist",
+    "7l9y3w5bhq9eca4nhuu147q": "Meeting Notes Template"
+  }
+}

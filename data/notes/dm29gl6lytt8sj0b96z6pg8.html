@@ -1,0 +1,65 @@
+<h1 id="sars_cov2_notes">SARS_Cov2_notes<a aria-hidden="true" class="anchor-heading icon-link" href="#sars_cov2_notes"></a></h1>
+<h2 id="questions-to-ponder-on">Questions to ponder on:<a aria-hidden="true" class="anchor-heading icon-link" href="#questions-to-ponder-on"></a></h2>
+<ol>
+<li>Will there be any difference in the charaacteristics of the transmissabiity variables of epidemic and pandemic</li>
+<li></li>
+</ol>
+<h2 id="facts-on-sars-cov2"><strong>Facts on SARS-CoV2:</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#facts-on-sars-cov2"></a></h2>
+<ul>
+<li>The SARS-CoV-2 virus accumulates approximately 24 point muta- tions per year, or 0.3 mutations per viral generation <a href="https://doi.org/10.1038/s41586-021-04069-y">3</a></li>
+</ul>
+<h2 id="-factors-to-consider-when-modelling-the-epidemiology-of-sars-cov2-"><strong> Factors to consider when modelling the epidemiology of SARS Cov2 </strong>:<a aria-hidden="true" class="anchor-heading icon-link" href="#-factors-to-consider-when-modelling-the-epidemiology-of-sars-cov2-"></a></h2>
+<ul>
+<li>Asymptomatic insdividuals - who may or may not be infectious to others</li>
+<li>Pre-symptomatic infectious period</li>
+<li>Impact of partial or full (‘lock down’) isolation </li>
+<li>known unknown’ is the duration of immunity post recovery</li>
+<li>it is not clear if those reinfected are again infectious to others or exhibit symptoms of infection that result in measurable morbidity</li>
+<li>‘unknown unknowns’ (meaning unmeasured parameters and unknown pathways of infection, transmission and disease <a href="./assets/Reference%20literature/set-covid-19-R-estimates.pdf">1</a></li>
+</ul>
+<h2 id="-importance-of-reproduction-number"><strong> Importance of Reproduction Number:</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#-importance-of-reproduction-number"></a></h2>
+<p><a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#reproduction-number">Reproduction Number:</a></p>
+<ul>
+<li>R<sub>0</sub> and R<sub>t</sub> are important measure of the progression of an epidemic</li>
+<li>It is used for the policy formulation.</li>
+<li>The value of R matters – not just whether it is greater or less than 1 – but because the value of R when greater than unity tells you what proportion of new infections you need to prevent in order to go from increasing incidence to stable or decreasing incidence.</li>
+<li>In addition, the magnitude of R<sub>0</sub> <a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#r0basic-reproduction-number">(Basic Reproduction Number):</a> also provides information on what level of herd immunity will drive the value of R to less than unity such that the infection cannot persist.</li>
+<li>This gives the target for vaccination programmes of what fraction of the community to immunise. As a rough approximation, the expression p=1-1/R<sub>0</sub> gives the critical proportion (or percentage) p that must be immune if transmission is to be halted. For a value of 2.5 as recorded in Wuhan in the early stages of the epidemic, this critical proportion is 0.6 or 60%. That is : 1 primary infection causes 2.5 secondary infections. So 1/2.5 primary infection causes 1 secondary infection. So to get a 1 as secondary infection there must be only 1/2.5 primary infection which means 1-1/2.5 should be immunised which is 60%.<a href="./assets/Reference%20literature/set-covid-19-R-estimates.pdf">1</a></li>
+</ul>
+<h2 id="dynamics-of-serialgeneration-interval"><strong>Dynamics of Serial/Generation interval</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#dynamics-of-serialgeneration-interval"></a></h2>
+<p><a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#generation-time">Generation Time</a></p>
+<p><a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#serial-interval">Serial interval</a></p>
+<ul>
+<li>Serial interval in the case of COVID-19 has less relevance given that many infections especially in the young do not seem to generate marked
+and easily identifiable symptoms.</li>
+<li>The interventions that are put into places will affect the dynamics of both serial interval and generation time.
+<ol>
+<li>shorter generation times early in the epidemic,
+and longer ones as the epidemic is declining</li>
+<li>For a highly variable incubation period there may be negative serial intervals, which may
+be misinterpreted as the wrong direction of transmission.If the wrong direction of transmission is assumed, contact tracing efforts may stop prematurely and miss new infections that then may lead to further uncontrolled transmission events.<a href="./assets/Reference%20literature/set-covid-19-R-estimates.pdf">1</a></li>
+</ol>
+</li>
+</ul>
+<h2 id="relationship-between-generation-time-serial-interval-epidemic-growth-and-reproduction-number"><strong>Relationship between Generation time/ Serial interval, epidemic growth and Reproduction number</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#relationship-between-generation-time-serial-interval-epidemic-growth-and-reproduction-number"></a></h2>
+<pre><code>   r = (R0-1)/Ƭ 
+</code></pre>
+<p>  To explain the relationship between R and time an comparison is provided by HIV, which has an R<sub>0</sub> of around 2 in some populations, and influenza, which has an R<sub>0</sub> around 1.329, the most important being the reproduction number R, but the timescale from one infection to the next is days for influenza but months or years for HIV.<a href="./assets/Reference%20literature/set-covid-19-R-estimates.pdf">1</a></p>
+<p>  <a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0#epidemic-growth-rate">Epidemic Growth rate</a></p>
+<h2 id="using-epidemic-growthrate"><strong>Using Epidemic growthrate</strong><a aria-hidden="true" class="anchor-heading icon-link" href="#using-epidemic-growthrate"></a></h2>
+<p>  Epidemic growth rate is a measure of the speed of epidemic growth, conveying information about the time scale of disease spread. In contrast, R<sub>0</sub>is a pure number with no associated time scale; epidemics with the same R<sub>0</sub>
+can occur over vastly different time periods, ranging from days to years. Knowing the epidemic time frame can be critical for selection of disease control strategies. Secondly, r itself is independent of potentially uncertain knowledge about the generation interval distribution, and thus may be useful in comparing the severity of disease epidemics.<a href="https://doi.org/10.1007/s11538-013-9918-2">2</a>
+Epidemic growth rate r itself can only be directly measured providing case reporting, hospital admissions, recorded deaths due to COVID-19 or serological data.
+but when the main source
+of data is deaths other information is required such as the probability distribution of times from infection to death
+and the fraction who die from infection.<a href="./assets/Reference%20literature/set-covid-19-R-estimates.pdf">1</a></p>
+<h2 id="resources-that-can-be-used-for-the-dissertation"><strong>Resources that can be used for the dissertation</strong>:<a aria-hidden="true" class="anchor-heading icon-link" href="#resources-that-can-be-used-for-the-dissertation"></a></h2>
+<ul>
+<li><a href="https://www.ijccm.org/doi/pdf/10.5005/jp-journals-10071-23649">Achaiah, Nithya C et al. “R0 and Re of COVID-19: Can We Predict When the Pandemic Outbreak will be Contained?.” Indian journal of critical care medicine : peer-reviewed, official publication of Indian Society of Critical Care Medicine vol. 24,11 (2020): 1125-1127. doi:10.5005/jp-journals-10071-23649</a></li>
+</ul>
+<!--References-->
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/SARS-Cov2-Surveilance/notes/rfr63bef0sa84zpwv9fw1w0">Glossary</a></li>
+</ul>
