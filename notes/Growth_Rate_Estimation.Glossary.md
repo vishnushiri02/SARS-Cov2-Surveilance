@@ -4,7 +4,7 @@ title: Glossary
 desc: >-
   This document contains the important terms and definitions that are used in
   the project
-updated: 1694869340437
+updated: 1696842681643
 created: 1684497049640
 ---
 
@@ -89,7 +89,7 @@ Prevelance is calculated as:
 $$$
 Prevalance = \cfrac{Number\space of \space cases\space in\space the\space population\space at\space one\space time}{total \space population\space at\space that\space timera}
 $$$
-Incidence is the number of new cases during a specified time period.
+Incidence is the number of new cases during a specified time period in a population at the same time.
 Incidence is calculated as:
 $$$
 Incidence = \cfrac{New\space cases\space during\space a\space specified\space time }{total\space population\space at\space risk\space at\space that\space period\space of\space time\space}
@@ -132,6 +132,8 @@ degrees of freedom. Or: A cubic spline (degree=3) with 5 degrees of freedom will
 - The Boundary knots are the outermost two knots, ususally (but not always) placed at the minimum and maximum of 𝑥.
 - The other knots are called internal knots and when I talked about the number of knots I was always referring to the internal knots.[4]
 - [Introduction to Spline interpolation](https://www.youtube.com/watch?v=5tNApkOJX2M)
+- [Linear spline interpolation](https://www.youtube.com/watch?v=4Q1AQrUKgPk)
+- [cubic spline interpolation](https://www.youtube.com/watch?v=pBtqaK0PzrA)
 - [B-splines](https://www.youtube.com/watch?v=JwN43QAlF50)
 - [What is interpolation](https://www.youtube.com/watch?v=gT90n_J1hj8)
 
@@ -163,7 +165,7 @@ In statistics, overdispersion is the presence of greater variability (statistica
 
 ## **Multivariate normal random variables:**
 
-My undersatnding - a vector of random variables which following a random distribution.
+My undersatnding - a vector of random variables which is following a random distribution.
 The value of the random variables is not known and these random variables denote different property of on statistical unit - one person or one country,etc.
 Here for each LTLA(1 statistical unit) a vector with l-1 random variables that denotes parameter for each of the l-1 lineage forms the multivariate normal variables.
 
@@ -177,11 +179,11 @@ The Prior probability is the probability assigned to an event before the arrival
 
 ## **Covariance:**
 
-Covariance is used to measure/observe the trend in variability in two or more random variables. This might sound like correlation. Correlation and covariance differ only in the sense that correlation-coefficient is a normalized verion of covariance and is bound to the interval [-1,1]. Correlation talks about the strength and direction of the relationship between random variables whereas covariance talks only about the direction of the relationship.[9]
+Covariance is used to measure/observe the trend in variability in two or more random variables. This might sound like correlation. Correlation and covariance differ only in the sense that correlation-coefficient is a normalized version of covariance and is bound to the interval [-1,1]. Correlation talks about the strength and direction of the relationship between random variables whereas covariance talks only about the direction of the relationship.[9]
 
 ## **Beta Distribution:**
 
-- This is a continuous probability distribution that is used when the probability of an event is not known, Consider a biased coin, the probability of heads and probability of tails cannot be 1/2; This biased coin is flipped N times and k occurances of head and N-k occurances of tail is observed. In that case parametres like $\alpha$ and $\beta$ take up the value k and N-k respectively and the random variable in this case is probabilities. The domain is $0\leq x\le 1$ beacuse x denotes the probability. PDF of the function looks like $f(x)=B\times x^{\alpha} (1-x)^{\beta}$. Where B is a normalization term
+- This is a continuous probability distribution that is used to obtain the prior probability of probability of an event.  Consider a biased coin, the probability of heads and probability of tails cannot be 1/2; This biased coin is flipped N times and k occurances of head and N-k occurances of tail is observed. If we make the  parametres like $\alpha$ and $\beta$ take up the value k and N-k respectively, we can find the distribution of the probability of having heads. The domain is $0\leq x\le 1$ beacuse x denotes the probability. PDF of the function looks like $f(x)=B\times x^{\alpha} (1-x)^{\beta}$. Where B is a normalization term
 - This is denoted as $Beta(\alpha+1,\beta+1)$
 - The $\alpha$ and $\beta$ control the shape of the curve
 - ![shape of the distribution](assets/images/Beta_distribution.png)
@@ -189,7 +191,10 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 - Beta distribution is univariate eg - the figure shows the Beta distribution for the probability of heads.
   
   > The $\alpha$ and $\beta$ are not necessarily count of the event. They are just parameters that can be set based on the likeliness of the event or can be set randomly.
-  
+
+[Reference Video 1](https://www.youtube.com/watch?v=v1uUgTcInQk) 
+[Reference video 2](https://www.youtube.com/watch?v=aVCImOiJklM)
+
 ## **Dirichlet-multinomial distribution:**
 
 - Generalisation of the beta distribution for a vector of probabilities of random variables is Dirichlet distribution that is Dirichlet is multivariate and here we would have multiple parameters.
@@ -206,7 +211,7 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 - PDF for Dirichlet-multinomial distribution:
   $$$
   P(\theta|x_{1:n})\propto P(x_{1:n}|\theta)P(\theta)\\
-  where \space P(x_{1:n}|\theta)\space is\space multinomial\space likelihood\space and\space P(\theta)\space is\space Dirichlet\space prior\\
+  where \space P(x_{1:n}|\theta)\space is\space multinomial\space likelihood\\ and\space P(\theta)\space is\space Dirichlet\space prior\\
   P(\theta|x_{1:n})\propto \prod_{i=1}^n\prod_{j=1}^k\theta_{j}^{I(x_{ij}=1)}\space \prod_{j=1}^k\theta_{j}^{\alpha_j-1}\space\\
   $$$
   > $N_j=\sum_{i=1}^nI(x_{ij}=1)$ is the total number of times the random variables takes up category j in n trials. In a [[Multinomial Distribution|Growth_Rate_Estimation.Glossary#multinomial-distribution]] random variable can take up only one category in each trial
@@ -225,7 +230,7 @@ Covariance is used to measure/observe the trend in variability in two or more ra
 
 ## **Hierarchical Bayesian model:**
 
-- Bayesian hierarchical modelling is a statistical model written in multiple levels (hierarchical form) that estimates the parameters of the posterior distribution using the Bayesian method.[1] The sub-models combine to form the hierarchical model, and Bayes' theorem is used to integrate them with the observed data and account for all the uncertainty that is present. The result of this integration is the posterior distribution, also known as the updated probability estimate, as additional evidence on the prior distribution is acquired.
+- Bayesian hierarchical modelling is a statistical model written in multiple levels (hierarchical form) that estimates the parameters of the posterior distribution using the Bayesian method.The sub-models combine to form the hierarchical model, and Bayes' theorem is used to integrate them with the observed data and account for all the uncertainty that is present. The result of this integration is the posterior distribution, also known as the updated probability estimate, as additional evidence on the prior distribution is acquired.
 
 ## **Negative Binomial Distribution:**
 
