@@ -2,13 +2,19 @@
 id: ikm1x970zyg0cc0u4ewttsk
 title: GerstungLab
 desc: 'Notes regarding the GerstungLa paper - SARS-CoV-2 England surveilance '
-updated: 1691595741128
+updated: 1696844982048
 created: 1686831170884
 ---
 
 ## Overall crux of the paper
 
-In the gerstung lab paper the dynamics of lineages of SARS-CoV-2 that were studied across all LTLA using [[Hierarchical Bayesian model|Growth_Rate_Estimation.Glossary#hierarchical-bayesian-model]]. The whole idea is to have a prior probaility and values for parameters and use the data to get the posterior probahilty and value for the parameters. Incidence, Growth rate and reproductoin number were all calculates by fitting various statistical model with the observed data.
+In the gerstung lab paper the dynamics of lineages of SARS-CoV-2 that were studied across all LTLA using [[Hierarchical Bayesian model|Growth_Rate_Estimation.Glossary#hierarchical-bayesian-model]]. The whole idea is to fit the model to the incidence data in hand and estimate the relative historical prevalence that is while fitting a prior probability is used with more and more data comming in in each step the the posterior can be derived and uaed to increase the fit of the model.<br>
+Fitting a Multivariate logistic regresssion model accounts for for the differences in the epidemiological dynamics between LTLAs. The relative growth rate of a lineage is condsiered identical across all the LTLA and they only differ by their proportion which is due to the difference in the rate of introduction of each lineage into a LTLA.
+>> The model calculates : Total and lineage specific local incidences, time dependent growth rate and aapproximate reproduction numbers.
+
+The growth rate advantage of a lineage is reasoned out with the mutation in the lineage. Incidence, Growth rate and reproductoin number were all calculates by fitting various statistical model with the observed data.
+
+The growth rates of new rare variant are stochastic due to random introduction and superspreading events. The growthrates are also influenced by the immunity of the population, the immunity of the populaation is not currently modelled now. 
 
 ## **Doubts and answers**
 
@@ -20,6 +26,7 @@ In the gerstung lab paper the dynamics of lineages of SARS-CoV-2 that were studi
 $$$
 p(t)=\cfrac{x(t)}{\sum x(t)} \propto e^{const+\vec{b}t}\\
 $$$
+Ans: I think this means the prevalence of a particular lineage is directly proportional to the e raised to the lineage specific parameter vector **$\vec{b}$**.
 4. What does the h weekly and k-h monthly splines mean? I assume it is the number of knots in the spine.
 5. What does the equation  $\delta(t)=\delta(t-1\times 7)\space \forall i \in N$ mean? ($\delta(t)$ is used as factor to account periodic difference in weekly testing pattern). Why is t from 1-6?
 
@@ -64,15 +71,13 @@ graph
 A[281,178 randomly selected samples] --> |Random selection of samples but some metadata was used| B[Amplicon sequencing] -->|384 samples pools were sequenced| C[Pangolin Lineage assignment] --> D[Lineage prevelance computed from 281,178 genome sequences] --> E[Mapping genome to 315 LTLA] --> F[agrregating lineage by counts per week in each LTLA for 43 weeks] --> G[ 328 Pango lineages into 71 by phylogenetic tree] -->|Each resulting lineage contains 100 genomes| H[END]
 ```
 
-## Answers for the [[Doubts|meet.2023.08.09#gerstung-lab-paper]]
-
-1. 
+sample pool : pool/batch  were samples are grouped together and the sent for sequencing. The samples are barcoded to be identified later. This is done to make the process fast,cost effective and simplified analysis.[Reference](https://www.illumina.com/techniques/sequencing/ngs-library-prep/multiplexing.html#:~:text=Sample%20multiplexing%2C%20also%20known%20as,or%20working%20with%20smaller%20genomes.)
 
 ## About the model
 
 ### Spatiotemporal genomic surveillance model
 
-- [[Hierarchical Bayesian model|Growth_Rate_Estimation.Glossary#hierarchical-bayesian-model]] - fits incidence data in a day and estimate the relative historical prevelance and transmission parameters, I assume r(t). That is deriving posterior values for all the prior parameters using the present data. 
+- [[Hierarchical Bayesian model|Growth_Rate_Estimation.Glossary#hierarchical-bayesian-model]] - fits incidence data in a day and estimate the relative historical prevelance and transmission parameter. That is deriving posterior values for all the prior parameters using the present data.
 - Following is my derivation of the solution of [[Ordinary differential equation|Growth_Rate_Estimation.Glossary#ordinary-differential-equation]] that takes the form - The rate of change of  viral population: _
 $$$
 x'(t)=(\vec{b}+r_0(t))*x(t) \equiv \frac{dx}{dt}=(\vec{b}+r_0(t))*x(t)\\
@@ -101,7 +106,7 @@ $$$
 
 ## Incidence
 
-- [[Incidence |Growth_Rate_Estimation.Glossary#incidence-vs-prevalence]] is the number of new cases at specified time.
+- [[Incidence |Growth_Rate_Estimation.Glossary#incidence-vs-prevalence]] is the number of new cases at specified time for a specific population at the same time.
 - Let $\mu(t)$ be the expected daily number of positive pillar 2 test
 - **s** is the population size in each LTLA(Lower Tier Local Authority)
 - $\lambda(t)=log\mu (t)-log(s)$ :- logarithimic daily incidence per capita at time t.
@@ -147,27 +152,26 @@ $$$
 
 ## **Genomic Prevalance:**
 
-- A Logistic linear model for each LTLA is being used to model the dynamics of each lineage prevelance in each LTLA. Because we are in the predicting business, so we have to create a classification model to classify lineages in each LTLA.
-- The logistic prevalance is defined as L(T)= logit(P(t)) (more on [[Logit function|Growth_Rate_Estimation.Glossary#logit-function]]. Prevalance is also called as [[The prior probability|Growth_Rate_Estimation.Glossary#the-prior-probability]] [1]).
+- A Logistic linear model for each LTLA is being used to model the dynamics of each lineage prevelance in each LTLA. 
+- The logistic prevalance is defined as L(T)= logit(P(t)) (more on [[Logit function|Growth_Rate_Estimation.Glossary#logit-function]]. Prevalance is also called as [[The prior probability|Growth_Rate_Estimation.Glossary#the-prior-probability]] [1]). The prevalence is in [0,1], the logit function changes it to real  number domain. 
 - The Logistic prevalence  L(t) is modelled using piecewise linear expression : $L(t)=C+b*t_+$ (b- lineage specific growth advantage, C matrix with offset term with dimention $(LTLA\times Lineages)$) which I assume is similar to the features and coefficients combo defining of the independent variables, like the righthand side of the following equation
 - $\pi=\beta_0+\beta_1x_1+\beta_2x_2+....+\beta_kx_k$
 - $t_+ = t-t_0\space (if\space t>t_0)\space else -\infin\space$ where t<sub>0</sub> is the introduction time.
 - This time term is introduced to suggest that the lineages can be absent before this time, since the exact time of lineage introduction is not known a 3 week period before the time of observation is chosen. together it is t<sub>0</sub>.
 - $t_0\sim Unif(-14,0)+t^{obs}_0$. I assume that for each lineage the buffer time chosen varies thats why there is a uniform distribution.
 - Doubt regarding $L_{.,0}(t)=0$
-- Not sure what the offset parameter **C** I think it is a prameter set that is  modelled for each LTLA as an independently distributed [[Multivariate normal randomvariables|Growth_Rate_Estimation.Glossary#multivariate-normal-randomvariables]] with a lineage specific mean **c** and covariance of 10.
+- The offset parameter **C** is a prameter set that is  modelled for each LTLA as an independently distributed [[Multivariate normal randomvariables|Growth_Rate_Estimation.Glossary#multivariate-normal-randomvariables]] with a lineage specific mean **c** and covariance matrix $\Sigma=10\times I_{(l-1)\times (l-1)}$.
 
 > - I assume **C** would be like - say there are 35 LTLA and 6 lineages, Then there might be 35 vectors with l-1 = 5 elements :
 > - $LTLA_1=\begin{bmatrix}l1\\l2\\l3\\l4\\l5\\\end{bmatrix}....LTLA_{35}=\begin{bmatrix}l1\\l2\\l3\\l4\\l5\\\end{bmatrix}$
 > - Lineage specific mean $C_1=\frac{LTLA_1(l_1)+LTLA_2(l_1)+....LTLA_{35}(l_1)}{35}$
 > - [[Covariance|Growth_Rate_Estimation.Glossary#covariance]] of the parameters among the lineages (I assume) for each LTLA is given by  $\begin{bmatrix}var(l_1,l1)&covar(l_1,l_2)&covar(l_1,l_3)&covar(l_1,l_4)&covar(l_1,l_5)\\covar(l_2,l1)&var(l_2,l_2)&covar(l_2,l_3)&covar(l_2,l_4)&covar(l_2,l_5)\\covar(l_3,l1)&covar(l_3,l_2)&var(l_3,l_3)&covar(l_3,l_4)&covar(l_3,l_5)\\.&.&.&.&.\\var(l_5,l1)&covar(l_5,l_2)&covar(l_5,l_3)&covar(l_5,l_4)&var(l_5,l_5)\end{bmatrix}=10\times I_{l-1\times l-1}$
-> - I assume this by the dimension of the identity matrix given in the paper
-
+> So I assume for each LTLA there is a covariance matrix.
 - The lineage specific factor **b** and lineage specific mean off-set **c** are modelled using [[IID|Growth_Rate_Estimation.Glossary#independent-and-identically-distributed-random-variables]] Normal [[prior probability distribution|Growth_Rate_Estimation.Glossary#the-prior-probability]].
 -  $b\sim N(0,0.2)$ and $c\sim N(-10,5)$ which means b and c are said to follow a normal distribution with the stated mean and variance
 
 - **MY assumption** :
-    1. G(t) is the total number of genomes sequenced in a given LTLA. (n)
+    1. G(t) is the total number of genomes sequenced in a given LTLA.
     2. I think Y(t) is the $\theta$
     3. p(t) which is the prevalance of each lineages. The prevalance is used as the paramenter of [[Dirichlet-multinomial distribution|Growth_Rate_Estimation.Glossary#dirichlet-multinomial-distribution]].
     4. $Y_{i,.}(t)\sim DirMult(\alpha_0+\alpha_1P_{i,j}(t),G_i(t))$. I think the i,. in $Y_{i,.}(t)$ and in $P_{i,j}(t)$ denotes (i)LTLA, (.)all lineages.
@@ -178,7 +182,19 @@ $$$
 
 - Multiplying total incidence $\mu$ in each of the LTLA with corresponding lineage prevalances for each lineage will give the lineage specific incidence. 
 $M_{.,j}(t)=\mu(t).P_{.,j}\space for\space j=0,.....l-1$
-- for lineage specific reproductive number R<sub>t</sub>
+- for lineage specific reproductive number R<sub>t</sub> (didn't understand)
+
+## **Phylographic analysis:**
+- To infer the introductory events of the VOCs in UK. sequences of VOCs along with the release dates were taken and the phylogeny was constructed to get the lineages and their sub lineages.
+- The introductory events of these VOCs into UK were considered if it is supported by any mirgratory history and transmission of such variant in UK.
+  
+## Limitations:
+- The transmission is modelled as determininstic process but it is a stochastic process.
+- Transmission between LTLA were not considered.
+- The inferred growth rates also cannot identify a particular mecha- nism of altered transmission. Biological mechanisms include a higher viral load, longer infectivity or greater susceptibility
+- Immunity changes has to be considered.
+- As the total incidence is modelled on the basis of the total number of positive PCR tests, it may be influenced by testing capacity
+
 
 ## References
 
